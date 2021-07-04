@@ -1,0 +1,95 @@
+.header
+    display: flex
+    justify-content: center
+    .header-nav
+        padding: 1.2rem 0 0.8rem 0
+        color: $color-text
+        border-bottom: 1px solid transparentize($color-text, 0.8%)
+        transition: border-bottom 1s
+        &:hover
+            border-bottom: 1px solid transparentize($color-text, 0.40%)
+            transition: border-bottom 1s
+            a
+                &:hover
+                    color: $color-text
+                    transition: color 650ms
+                    svg
+                        &:hover
+                            color: $color-text
+                            transition: color 650ms
+            svg
+                &:hover
+                    color: $color-text
+                    transition: color 650ms
+                    a
+                        &:hover
+                            color: $color-text
+                            transition: color 650ms
+        a
+            padding: 0 1rem
+            margin: 0.5rem 0
+            font-size: 1.125rem
+            color: transparentize($color-text, 0.18%)
+            transition: color 350ms
+            font-family: "Source Sans Pro Semibold",
+            display: inline-flex
+            align-items: center
+            &:hover
+                color: $color-text
+                transition: color 650ms
+                svg
+                    color: $color-text
+                    transition: color 650ms
+
+            svg
+                margin-right: 0.3rem
+                transition: color 350ms
+                color: transparentize($color-text, 0.18%)
+                font-size: 1rem
+                border-spacing: 10px
+                border-bottom: 1px solid transparent
+                &:hover
+                    color: $color-text
+                    transition: color 650ms
+@media screen and ( max-width: 700px )
+    .header
+        .header-nav
+            display: inline-flex
+            justify-content: space-evenly
+            width: 100%
+            padding: 0
+            padding-top: 0.5rem
+            &:hover
+                a
+                    &:hover
+                        svg
+                            border-bottom: 1px solid $color-text
+                            transition: border-bottom 650ms
+                            &:hover
+                                transition: border-bottom 650ms
+                                border-bottom: 1px solid $color-text
+                    svg
+                        border-bottom: 1px solid #00000000
+                        transition: border-bottom 650ms
+                        &:hover
+                            border-bottom: 1px solid $color-text
+                            transition: border-bottom 650ms
+            a
+                &:hover
+                    svg
+                        border-bottom: 1px solid $color-text
+                        transition: border-bottom 650ms
+                        &:hover
+                            transition: border-bottom 650ms
+                            border-bottom: 1px solid $color-text
+                svg
+                    margin-right: 0
+                    font-size: 6vw
+                    padding-bottom: 0.7rem
+                    border-bottom: 1px solid #00000000
+                    transition: border-bottom 650ms
+                    &:hover
+                        border-bottom: 1px solid $color-text
+                        transition: border-bottom 650ms
+                span
+                    display: none

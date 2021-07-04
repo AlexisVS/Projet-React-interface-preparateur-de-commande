@@ -14,3 +14,5 @@
 - pour l'interface du préparateur de commande :
 	- nom du client
 	- temps restant avant que la commande soit préparée
+
+- Police : Segoe UI & Helvetica

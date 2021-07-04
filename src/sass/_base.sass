@@ -2,3 +2,271 @@ body, #root
     min-height: 100vh
     background-color: $color-background
     color: $color-text
+
+h1,h2,h3,h4,h5,h6
+    font-family: 'Source Sans Pro Bold', sans-serif
+    color: $color-text
+
+a
+    font-family: "Rubik", sans-serif
+    color: $color-blue
+    letter-spacing: 0.5px
+    text-decoration: none
+    transition: color 350ms
+    &:visited
+        color: $color-blue
+        transition: color 350ms
+    &:hover
+        color: lighten($color-blue, 10%)
+        transition: color 350ms
+    &:active
+        color: lighten($color-blue, 25%)
+        transition: color 350ms
+
+p
+    font-family: "Rubik", sans-serif
+    color: $color-text
+
+/* -------------------------------------------------------------------------- */
+/*                                   Colors                                   */
+/* -------------------------------------------------------------------------- */
+// Color
+.color-background
+    color: $color-background
+.color-text
+    color: $color-text
+.color-text-black
+    color: $color-text--black
+.color-blue
+    color: $color-blue
+.color-green
+    color: $color-green
+.color-red
+    color: $color-red
+.color-yellow
+    color: $color-yellow
+
+// Background color
+.bg-background
+    background-color: $color-background
+.bg-text
+    background-color: $color-text
+.bg-text-black
+    background-color: $color-text--black
+.bg-blue
+    background-color: $color-blue
+.bg-green
+    background-color: $color-green
+.bg-red
+    background-color: $color-red
+.bg-yellow
+    background-color: $color-yellow
+
+// Border color
+.border-background
+    border-color: $color-background
+.border-text
+    border-color: $color-text
+.border-text-black
+    border-color: $color-text--black
+.border-blue
+    border-color: $color-blue
+.border-green
+    border-color: $color-green
+.border-red
+    border-color: $color-red
+.border-yellow
+    border-color: $color-yellow
+
+/* -------------------------------------------------------------------------- */
+/*                                   Border                                   */
+/* -------------------------------------------------------------------------- */
+.border-none
+    border: none
+.border-1
+    border-style: solid
+    border-width: 1px
+.border-2
+    border-style: solid
+    border-width: 2px
+.border-3
+    border-style: solid
+    border-width: 3px
+.border-4
+    border-style: solid
+    border-width: 4px
+.border-5
+    border-style: solid
+    border-width: 5px
+/* -------------------------------------------------------------------------- */
+/*                                 Font family                                */
+/* -------------------------------------------------------------------------- */
+
+/* ---------------------------------- Rubik --------------------------------- */
+.font-Rubik-light
+    font-family: "Rubik Light"
+
+.font-Rubik
+    font-family: "Rubik"
+
+.font-Rubik-medium
+    font-family: "Rubik Medium"
+
+.font-Rubik-bold
+    font-family: "Rubik Bold"
+
+.font-Rubik-black
+    font-family: "Rubik Black"
+
+// Italic
+
+.font-Rubik-lightItalic
+    font-family: "Rubik Light Italic"
+
+.font-Rubik-italic
+    font-family: "Rubik Italic"
+
+.font-Rubik-mediumItalic
+    font-family: "Rubik Medium Italic"
+
+.font-Rubik-boldItalic
+    font-family: "Rubik Bold Italic"
+
+.font-Rubik-blackItalic
+    font-family: "Rubik Black Italic"
+
+/* -------------------------------- Source Sans Pro ------------------------------- */
+
+.font-SourceSP-Bold
+    font-family: 'Source Sans Pro Bold'
+.font-SourceSP-ExtraLight
+    font-family: 'Source Sans Pro ExtraLight'
+.font-SourceSP-Light
+    font-family: 'Source Sans Pro Light'
+.font-SourceSP-Black
+    font-family: 'Source Sans Pro Black'
+.font-SourceSP
+    font-family: 'Source Sans Pro'
+.font-SourceSP-SemiBold
+    font-family: 'Source Sans Pro SemiBold'
+
+/* --------------------------------- Button --------------------------------- */
+
+button, .btn
+    background-color: $color-blue
+    border-radius: 3px
+    border-width: 2.9px
+    border-style: solid
+    border-color: $color-blue
+    padding: 0.35rem 1rem
+    font-family: "Source Sans Pro Bold" !important
+    color: $color-text
+    letter-spacing: 0.9px
+    font-size: 1.125rem
+    box-shadow: 0 0 5px 0 lighten( $color-background, 15%)
+    transition: all 350ms
+    &:hover
+        transition: all 350ms
+        background-color: lighten($color-blue, 5%)
+        border-color: lighten($color-blue, 5%)
+    &:focus
+        outline: 2.9px solid lighten( $color-blue, 28%)
+
+    &.btn-background
+        background-color: $color-background
+        border-color: $color-background
+        &:hover
+            background-color: lighten($color-background, 5%)
+            border-color: lighten($color-background, 5%)
+        &:focus
+            outline: 2.9px solid lighten( $color-background, 28%)
+    &.btn-blue
+        background-color: $color-blue
+        border-color: $color-blue
+        &:hover
+            background-color: lighten($color-blue, 5%)
+            border-color: lighten($color-blue, 5%)
+        &:focus
+            outline: 2.9px solid lighten( $color-blue, 28%)
+    &.btn-red
+        background-color: $color-red
+        border-color: $color-red
+        &:hover
+            background-color: darken($color-red, 7%)
+            border-color: darken($color-red, 7%)
+        &:focus
+            outline: 2.9px solid darken( $color-red, 28%)
+    &.btn-green
+        background-color: $color-green
+        border-color: $color-green
+        &:hover
+            background-color: lighten($color-green, 5%)
+            border-color: lighten($color-green, 5%)
+        &:focus
+            outline: 2.9px solid lighten( $color-green, 13%)
+    &.btn-yellow
+        background-color: $color-yellow
+        border-color: $color-yellow
+        color: $color-text--black
+        &:hover
+            background-color: lighten($color-yellow, 5%)
+            border-color: lighten($color-yellow, 5%)
+        &:focus
+            outline: 2.9px solid lighten( $color-yellow, 28%)
+    &.btn-transparent
+        border: transparent
+        background-color: transparent
+        box-shadow: none
+        &:hover
+            background-color: transparent
+            border-color: transparent
+        &:focus
+            padding: 6px 11px
+            border-radius: 100%
+            // outline: none
+
+// Formulaire
+form
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    label
+        width: 95%
+        display: flex
+        font-family: "Rubik Bold"
+        font-size: 0.84rem
+        align-items: center
+        padding: 0.6rem 0
+        justify-content: space-between
+        p
+            font-family: "Rubik Bold"
+            margin: 0
+            width: 190px
+            text-align: center
+            background-color: $color-text
+            border: 3px solid #fff
+            color: lighten($color-background, 10%)
+            border-radius: 25px
+            padding: 0.2rem 0.5rem
+        input
+            border: 3px solid lighten($color-background, 2%)
+            background-color: lighten($color-background, 5%)
+            border-radius: 25px
+            color: $color-text
+            font-family: "Rubik"
+            padding: 0.3rem 0.5rem
+            justify-self: end
+            width: 190px
+@media (max-width: 575px)
+    form
+        label
+            flex-direction: column
+            padding-bottom: 1.2rem
+            font-size: 0.95rem
+            input
+                margin-top: 10px
+                width: 100%
+                text-align: center
+            p
+                width: 100%

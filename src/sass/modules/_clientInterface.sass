@@ -1,0 +1,36 @@
+.clientInterface
+    margin: 0 auto
+    width: 70vw
+    .clientInterface-header
+        padding-top: 7vh
+        display: flex
+        flex-wrap: wrap
+        .clientInterface-header-left
+            min-width: 280px
+            .clientInterface-header-left-title
+                font-size: 4.3rem
+                .clientInterface-header-left-title-span
+                    color: darken($color-text, 30%)
+            .clientInterface-header-left-text
+                font-size: 1.35rem
+                line-height: 1.25
+                min-width: 280px
+                max-width: 570px
+            .clientInterface-header-left-button
+                font-size: 1.25rem
+                padding: 0.5rem 1rem
+        .clientInterface-header-right //? La ou sont afficher tous les clients
+            display: flex
+            justify-content: end
+            align-items: center
+@media screen and ( max-width: 450px )
+    .clientInterface
+        width: auto
+        margin: 0 15px
+        .clientInterface-header
+            .clientInterface-header-left
+                .clientInterface-header-left-title
+                    .clientInterface-header-left-title-span
+                .clientInterface-header-left-text
+                clientInterface-header-left-button
+            .clientInterface-header-right
