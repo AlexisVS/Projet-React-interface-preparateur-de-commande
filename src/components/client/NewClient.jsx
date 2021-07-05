@@ -7,6 +7,7 @@ class NewClient extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: "",
             firstName: "",
             lastName: "",
             society: "",
@@ -65,6 +66,12 @@ class NewClient extends Component {
         if (this.props.newClientData !== prevProps.newClientData) {
             this.props.newClientData(this.state)
         }
+    }
+
+    componentDidMount () {
+        let appStateClients
+        appStateClients = JSON.parse(localStorage.getItem("AppStateClients"))
+        this.setState({id: appStateClients.length + 1} )
     }
 
     render () {

@@ -35,6 +35,7 @@ class App extends Component {
       ],
       clients: [
         {
+          id: 1,
           firstName: "Christophe",
           lastName: "Brieux",
           society: "Polaris",
@@ -60,18 +61,23 @@ class App extends Component {
     }
     this.newClientData = this.newClientData.bind(this)
     this.componentDidUpdate = this.componentDidUpdate.bind(this)
-
+    this.componentDidMount = this.componentDidMount.bind(this)
   }
 
   newClientData (newClientData) {
     this.setState({ clients: [...this.state.clients, newClientData] })
-    console.log(this.state);
+    localStorage.setItem("AppStateClients", JSON.stringify([...this.state.clients, newClientData]))
   }
 
+
   componentDidUpdate (prevProps, prevState) {
-    if (this.props.newClientData !== prevState.clients[prevState.clients.length]) {
-      this.setState({ clients: [...prevState.clients, this.props.newClientData]})
+    if (this.props.newClientData !== prevState.clients[prevState.clients.length - 1]) {
+      this.setState({ clients: [...this.state.clients, this.props.newClientData]})
     }
+  }
+
+  componentDidMount() {
+    localStorage.setItem("AppStateClients", JSON.stringify(this.state.clients))
   }
 
   render () {
