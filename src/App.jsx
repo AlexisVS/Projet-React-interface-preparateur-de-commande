@@ -57,6 +57,144 @@ class App extends Component {
           ],
           orderHistory: [],
         },
+        {
+          id: 2,
+          firstName: "Christophe",
+          lastName: "Brieux",
+          society: "Polaris",
+          email: "christophe.brieux@polaris.com",
+          tel: "0032 485 25 87 98",
+          order: [
+            {
+              name: 'Peluche Cactus B0Y',
+              quantity: 1
+            },
+            {
+              name: 'Huawei P10 Lite',
+              quantity: 1
+            },
+            {
+              name: 'Briquet BIC Rouge',
+              quantity: 15
+            },
+          ],
+          orderHistory: [],
+        },
+        {
+          id: 3,
+          firstName: "Christophe",
+          lastName: "Brieux",
+          society: "Polaris",
+          email: "christophe.brieux@polaris.com",
+          tel: "0032 485 25 87 98",
+          order: [
+            {
+              name: 'Peluche Cactus B0Y',
+              quantity: 1
+            },
+            {
+              name: 'Huawei P10 Lite',
+              quantity: 1
+            },
+            {
+              name: 'Briquet BIC Rouge',
+              quantity: 15
+            },
+          ],
+          orderHistory: [],
+        },
+        {
+          id: 4,
+          firstName: "Christophe",
+          lastName: "Brieux",
+          society: "Polaris",
+          email: "christophe.brieux@polaris.com",
+          tel: "0032 485 25 87 98",
+          order: [
+            {
+              name: 'Peluche Cactus B0Y',
+              quantity: 1
+            },
+            {
+              name: 'Huawei P10 Lite',
+              quantity: 1
+            },
+            {
+              name: 'Briquet BIC Rouge',
+              quantity: 15
+            },
+          ],
+          orderHistory: [],
+        },
+        {
+          id: 5,
+          firstName: "Christophe",
+          lastName: "Brieux",
+          society: "Polaris",
+          email: "christophe.brieux@polaris.com",
+          tel: "0032 485 25 87 98",
+          order: [
+            {
+              name: 'Peluche Cactus B0Y',
+              quantity: 1
+            },
+            {
+              name: 'Huawei P10 Lite',
+              quantity: 1
+            },
+            {
+              name: 'Briquet BIC Rouge',
+              quantity: 15
+            },
+          ],
+          orderHistory: [],
+        },
+        {
+          id: 6,
+          firstName: "Christophe",
+          lastName: "Brieux",
+          society: "Polaris",
+          email: "christophe.brieux@polaris.com",
+          tel: "0032 485 25 87 98",
+          order: [
+            {
+              name: 'Peluche Cactus B0Y',
+              quantity: 1
+            },
+            {
+              name: 'Huawei P10 Lite',
+              quantity: 1
+            },
+            {
+              name: 'Briquet BIC Rouge',
+              quantity: 15
+            },
+          ],
+          orderHistory: [],
+        },
+        {
+          id: 7,
+          firstName: "Christophe",
+          lastName: "Brieux",
+          society: "Polaris",
+          email: "christophe.brieux@polaris.com",
+          tel: "0032 485 25 87 98",
+          order: [
+            {
+              name: 'Peluche Cactus B0Y',
+              quantity: 1
+            },
+            {
+              name: 'Huawei P10 Lite',
+              quantity: 1
+            },
+            {
+              name: 'Briquet BIC Rouge',
+              quantity: 15
+            },
+          ],
+          orderHistory: [],
+        },
       ]
     }
     this.newClientData = this.newClientData.bind(this)
@@ -65,19 +203,38 @@ class App extends Component {
   }
 
   newClientData (newClientData) {
-    this.setState({ clients: [...this.state.clients, newClientData] })
-    localStorage.setItem("AppStateClients", JSON.stringify([...this.state.clients, newClientData]))
+    if (newClientData !== null) {
+      this.setState({ clients: [...this.state.clients, newClientData] })
+      let storageClean
+      storageClean = [...this.state.clients, newClientData]
+      for (const key in storageClean) {
+
+        if (storageClean[key] == null) {
+          delete storageClean[key]
+        }
+      }
+      localStorage.setItem("AppStateClients", JSON.stringify(storageClean))
+    }
+
   }
 
 
   componentDidUpdate (prevProps, prevState) {
     if (this.props.newClientData !== prevState.clients[prevState.clients.length - 1]) {
-      this.setState({ clients: [...this.state.clients, this.props.newClientData]})
+      this.setState({ clients: [...this.state.clients, this.props.newClientData] })
     }
   }
 
-  componentDidMount() {
-    localStorage.setItem("AppStateClients", JSON.stringify(this.state.clients))
+  componentDidMount () {
+    let storageClean
+    storageClean = [...this.state.clients]
+    for (const key in storageClean) {
+
+      if (storageClean[key] == null) {
+        delete storageClean[key]
+      }
+    }
+    localStorage.setItem("AppStateClients", JSON.stringify(storageClean))
   }
 
   render () {

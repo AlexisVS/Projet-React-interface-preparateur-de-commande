@@ -1,13 +1,19 @@
 .clientInterface
-    margin: 0 auto
+    margin-right: auto
+    margin-left: auto
+    margin-top: 160px
     width: 70vw
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
     .clientInterface-header
-        padding-top: 7vh
+        margin-left: 10px
         display: flex
         flex-wrap: wrap
         .clientInterface-header-left
             min-width: 280px
             .clientInterface-header-left-title
+                margin-top: 0
                 font-size: 4.3rem
                 .clientInterface-header-left-title-span
                     color: darken($color-text, 30%)
@@ -19,18 +25,37 @@
             .clientInterface-header-left-button
                 font-size: 1.25rem
                 padding: 0.5rem 1rem
+                margin-bottom: 30px
         .clientInterface-header-right //? La ou sont afficher tous les clients
             display: flex
             justify-content: end
             align-items: center
+@media screen and ( max-width: 1550px )
+    .clientInterface
+        width: 80vw
+@media screen and (max-width: 1349px)
+    .clientInterface
+        width: 95vw
+@media screen and (max-width: 1349px)
+    .clientInterface
+        justify-content: space-around
+@media screen and (max-width: 985px)
+    .clientInterface
+        justify-content: space-between
+@media screen and (max-width: 748px)
+    .clientInterface
+        justify-content: center
+
 @media screen and ( max-width: 450px )
     .clientInterface
         width: auto
-        margin: 0 15px
+        margin: 0 7px
         .clientInterface-header
             .clientInterface-header-left
                 .clientInterface-header-left-title
                     .clientInterface-header-left-title-span
                 .clientInterface-header-left-text
-                clientInterface-header-left-button
+                .clientInterface-header-left-button
+                    display: block
+                    margin: 10px auto
             .clientInterface-header-right

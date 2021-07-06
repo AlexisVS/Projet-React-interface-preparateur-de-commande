@@ -8,7 +8,6 @@ class ClientInterface extends Component {
     this.state = {}
     this.goToApp = this.goToApp.bind(this)
     this.componentDidUpdate = this.componentDidUpdate.bind(this)
-    this.renderClients = this.renderClients.bind(this)
   }
 
   // Renvoie le nouveaux client au state du component App
@@ -21,35 +20,9 @@ class ClientInterface extends Component {
     if (prevProps.newClientData !== this.props.newClient) {
       // Rafraichit la props newClient
       this.props.newClient(this.props.newClient)
-
-      // this.renderClients
     }
-    // if (PrevState.newClientData !== this.props.NewClient) {
-    //   this.props.newClient(this.state.newClientData)
-    // }
-    console.log(this.state);
   }
-  // Fait le rendu des clients
-  renderClients () {
-    let clients
-    // Nettoie le localStorage AppStateClients
-    clients = JSON.parse(localStorage.getItem('AppStateClients'))
 
-    localStorage.getItem('AppStateClients') !== null
-      ? [clients].map((e) => {
-        return <Client
-          key={e.id}
-          id={e.id}
-          firstName={e.firstName}
-          lastName={e.lastName}
-          society={e.society}
-          email={e.email}
-          tel={e.tel}
-          order={e.order}
-          orderHistory={e.orderHistory} />
-      })
-      : null
-  }
 
 
   render () {
@@ -69,26 +42,8 @@ class ClientInterface extends Component {
               </p>
               <NewClient newClientData={this.goToApp} />
             </div>
-            <div className="clientInterface-body">
-              {/* {this.renderClients()} */}
-              {
-                [JSON.parse(localStorage.getItem('AppStateClients'))].map((e) =>
-                e == null ? null :
-                  <Client
-                    key={e.id}
-                    id={e.id}
-                    firstName={e.firstName}
-                    lastName={e.lastName}
-                    society={e.society}
-                    email={e.email}
-                    tel={e.tel}
-                    order={e.order}
-                    orderHistory={e.orderHistory} ></Client>
-                )
-              }
-              <button onClick={this.renderClients}>render clients</button>
-            </div>
           </div>
+            <Client />
         </div>
       </section>
     );
