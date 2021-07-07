@@ -1,4 +1,5 @@
-.overlay
+// Fonctionne avec bootstrap 
+.bs_overlay
     background-color: lighten($color-background, 10%)
     box-shadow: 0 0 3px 0 lighten($color-background, 5%)
     .modal-header
@@ -12,3 +13,16 @@
             margin-right: 2.5%
     .modal-footer
         border: 0
+
+.overlay
+    position: absolute
+    width: 100%
+    height: 100%
+    background-color: rgba(0,0,0,0.6)
+    display: flex
+
+    .overlay-container
+        display: flex
+        place-items: center center
+        .overlay-container-header
+        .overlay-container-body

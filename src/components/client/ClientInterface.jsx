@@ -2,28 +2,26 @@ import React, { Component } from 'react';
 import NewClient from "./NewClient.jsx"
 import Client from "./Client"
 
+
 class ClientInterface extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
-    this.goToApp = this.goToApp.bind(this)
-    this.componentDidUpdate = this.componentDidUpdate.bind(this)
+    this.goToApp = this.goToApp.bind(this);
+    this.componentDidUpdate = this.componentDidUpdate.bind(this);
   }
 
   // Renvoie le nouveaux client au state du component App
   goToApp (newClientData) {
-    this.setState({ newClientData: newClientData })
-    this.props.newClient(newClientData)
+    // this.setState({ newClientData: newClientData })
+    this.props.newClient(newClientData);
   }
 
   componentDidUpdate (prevProps, prevState) {
     if (prevProps.newClientData !== this.props.newClient) {
       // Rafraichit la props newClient
-      this.props.newClient(this.props.newClient)
+      this.props.newClient(this.props.newClient);
     }
   }
-
-
 
   render () {
     return (
@@ -43,8 +41,16 @@ class ClientInterface extends Component {
               <NewClient newClientData={this.goToApp} />
             </div>
           </div>
-            <Client />
+          <Client />
         </div>
+
+
+
+
+
+        
+
+
       </section>
     );
   }
