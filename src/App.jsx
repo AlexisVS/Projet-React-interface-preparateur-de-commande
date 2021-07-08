@@ -196,46 +196,69 @@ class App extends Component {
           orderHistory: [],
         },
       ]
-    }
-    this.newClientData = this.newClientData.bind(this)
-    this.componentDidUpdate = this.componentDidUpdate.bind(this)
-    this.componentDidMount = this.componentDidMount.bind(this)
+    };
+    this.newClientData = this.newClientData.bind(this);
+    this.componentDidUpdate = this.componentDidUpdate.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.newEditedClientData = this.newEditedClientData.bind(this);
   }
 
   newClientData (newClientData) {
     if (newClientData !== null) {
       this.setState({ clients: [...this.state.clients, newClientData] })
-      let storageClean
-      storageClean = [...this.state.clients, newClientData]
+      let storageClean;
+      storageClean = [...this.state.clients, newClientData];
       for (const key in storageClean) {
 
         if (storageClean[key] == null) {
-          delete storageClean[key]
+          delete storageClean[key];
         }
       }
-      localStorage.setItem("AppStateClients", JSON.stringify(storageClean))
+      localStorage.setItem("AppStateClients", JSON.stringify(storageClean));
     }
 
   }
 
+  newEditedClientData (editedClient) {
+    if (editedClient !== null) {
+      let clients;
+      clients = [...this.state.clients];
+
+      clients.forEach(e => {
+        if (e.id == editedClient.id) {
+          e.firstName = editedClient.firstName;
+          e.lastName = editedClient.lastName;
+          e.society = editedClient.society;
+          e.email = editedClient.email;
+          e.tel = editedClient.tel;
+        }
+      });
+      this.setState({ clients: clients });
+      console.log(clients);
+    }
+  }
 
   componentDidUpdate (prevProps, prevState) {
     if (this.props.newClientData !== prevState.clients[prevState.clients.length - 1]) {
-      this.setState({ clients: [...this.state.clients, this.props.newClientData] })
+      this.setState({ clients: [...this.state.clients, this.props.newClientData] });
+    }
+    // Todo : Je doit faire en sorte que quand le nom, le prenom, la societe, email change de la state clients qu"elle se mette a jour
+    if (this.props.editedClient !== prevProps.editedClient) {
     }
   }
 
   componentDidMount () {
-    let storageClean
-    storageClean = [...this.state.clients]
+    let storageClean;
+    storageClean = [...this.state.clients];
     for (const key in storageClean) {
 
       if (storageClean[key] == null) {
-        delete storageClean[key]
+        delete storageClean[key];
       }
     }
-    localStorage.setItem("AppStateClients", JSON.stringify(storageClean))
+    localStorage.setItem("AppStateClients", JSON.stringify(storageClean));
   }
+
 
   render () {
     return (
@@ -245,7 +268,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/client" component={() => <ClientInterface newClient={this.newClientData} />} />
+            <Route path="/client" component={() => <ClientInterface editedClient={this.newEditedClientData} newClient={this.newClientData} />} />
             <Route path="/preparator" component={PreparatorInterface} />
             <Route component={NotFound} />
           </Switch>

@@ -6,6 +6,7 @@ class Client extends Component {
     this.state = {
       appStateClients: JSON.parse(localStorage.getItem('AppStateClients')),
       editClient: {
+        id: "",
         firstName: "",
         lastName: "",
         society: "",
@@ -13,11 +14,12 @@ class Client extends Component {
         tel: "",
       }
     }
-    this.saveClientState = this.saveClientState.bind(this)
-    this.componentDidMount = this.componentDidMount.bind(this)
-    this.componentDidUpdate = this.componentDidUpdate.bind(this)
-    this.actionsModify = this.actionsModify.bind(this)
-    this.actionDelete = this.actionDelete.bind(this)
+    this.userCard = React.createRef();
+    this.saveClientState = this.saveClientState.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.componentDidUpdate = this.componentDidUpdate.bind(this);
+    this.actionDelete = this.actionDelete.bind(this);
+    this.actionsModify = this.actionsModify.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.renderClients = this.renderClients.bind(this)
@@ -50,15 +52,18 @@ class Client extends Component {
     if (prevState.appStateClients !== appStateClients) {
       this.saveClientState
     }
+    if (this.props.clientEdited !== prevProps.clientEdited && this.state.editClient.id !== "") {
+      this.actionsModify
+      console.log("héhé");
+    }
   }
 
   handleSubmit (e) {
     e.preventDefault();
+    
   }
 
   handleChange (e) {
-    console.log(e.target.name);
-    console.log(e.target.value);
     let editClientState;
     let value = e.target.value;
     let name = e.target.name;
@@ -86,15 +91,36 @@ class Client extends Component {
     this.setState({ editClient: editClientState });
   }
 
+  // TODO: Lorsque je clique sur le bouton editer le profile je doit prendre le client dans this.state.appStateClients par rapport à son id et le changer avec celui dans la state client
+  displayProfile = (e) => {
+    let userCardId, newAppStateClients
+    userCardId = e.target.parentElement.parentElement.children[1].children[4].lastChild.data
+    this.state.appStateClients.map(e => {
+      if (e.id == userCardId) {
 
-  actionsModify = () => {
+        this.setState({
+          editClient: {
+            id: e.id,
+            firstName: e.firstName,
+            lastName: e.lastName,
+            society: e.society,
+            email: e.email,
+            tel: e.tel,
+          }
+        })
+
+      }
+    })
+  };
+
+  // TODO Je n'arrive pas a envoyer cette props
+  actionsModify = () => {this.props.clientEdited(this.state.editClient)}
+
+  actionDelete = () => {
 
   }
 
-  actionDelete = () => { }
-
   render () {
-    console.log(this.state.appStateClients);
     return (
       <>
         {
@@ -104,20 +130,22 @@ class Client extends Component {
                 return (
                   <div key={e.id} className="clientCard">
                     <i className="fas fa-user" />
-                    <div className="clientCard-body">
+                    <div className="clientCard-body" ref={this.userCard}>
                       <p className="clientCard-body-info"><strong className="clientCard-body-labelTitle">Nom complet : </strong>{`${e.firstName} ${e.lastName.toUpperCase()}`}</p>
                       <p className="clientCard-body-info"><strong className="clientCard-body-labelTitle">Société : </strong>{e.society}</p>
                       <p className="clientCard-body-info"><strong className="clientCard-body-labelTitle">Email : </strong>{e.email}</p>
                       <p className="clientCard-body-info"><strong className="clientCard-body-labelTitle">Tel : </strong>{e.tel}</p>
+                      <p className="clientCard-body-info"><strong className="clientCard-body-labelTitle">id : </strong>{e.id}</p>
                     </div>
                     <div className="clientCard-actions">
                       <button
+                        onClick={this.displayProfile}
                         data-bs-toggle="modal"
                         data-bs-target="#editClientModal"
                         className="clientCard-actions--modify">
                         <i className="fas fa-edit"></i>
                       </button>
-                      <button className="clientCard-actions--delete"><i className="fas fa-times"></i></button>
+                      <button onClick={this.actionDelete} className="clientCard-actions--delete"><i className="fas fa-times"></i></button>
                     </div>
                   </div>
                 )
@@ -186,6 +214,7 @@ class Client extends Component {
                       onChange={this.handleChange} />
                   </label>
                   <input
+                    onClick={this.actionsModify}
                     className="btn"
                     type="submit"
                     value="Enregistrer"
