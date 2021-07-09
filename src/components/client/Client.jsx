@@ -4,7 +4,7 @@ class Client extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      appStateClients: JSON.parse(localStorage.getItem('AppStateClients')),
+      appStateClients: null,
       editClient: {
         id: "",
         firstName: "",
@@ -14,53 +14,54 @@ class Client extends Component {
         tel: "",
       }
     }
-    this.userCard = React.createRef();
-    this.saveClientState = this.saveClientState.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
-    this.componentDidUpdate = this.componentDidUpdate.bind(this);
+    // this.componentDidUpdate = this.componentDidUpdate.bind(this);
+    // this.componentWillUnmount = this.componentWillUnmount.bind(this);
+    this.saveClientState = this.saveClientState.bind(this);
     this.actionDelete = this.actionDelete.bind(this);
     this.actionsModify = this.actionsModify.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.renderClients = this.renderClients.bind(this)
   }
 
   // ? Enregistre les données de appStateClients du localStorage dans le state
   saveClientState = () => {
     let appStateClients
-    appStateClients = JSON.parse(localStorage.getItem('AppStateClients'))
-    for (const key in appStateClients) {
-      if (appStateClients[key] == null) {
-        delete appStateClients[key]
-      }
-    }
+    appStateClients = JSON.parse(localStorage.getItem('appStateClients'))
+    // for (const key in appStateClients) {
+    //   if (appStateClients[key] == null) {
+    //     delete appStateClients[key]
+    //   }
+    // }
     console.log(appStateClients);
     this.setState({ appStateClients: appStateClients })
   }
-  componentDidMount = () => {
-    this.saveClientState
+  componentDidMount () {
+    let appStateClients
+    appStateClients = JSON.parse(localStorage.getItem('appStateClients'))
+    this.setState({ appStateClients: appStateClients })
+    // this.forceUpdate()
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
-    let appStateClients
-    appStateClients = JSON.parse(localStorage.getItem('AppStateClients'))
-    for (const key in appStateClients) {
-      if (appStateClients[key] == null) {
-        delete appStateClients[key]
-      }
-    }
-    if (prevState.appStateClients !== appStateClients) {
-      this.saveClientState
-    }
-    if (this.props.clientEdited !== prevProps.clientEdited && this.state.editClient.id !== "") {
-      this.actionsModify
-      console.log("héhé");
-    }
-  }
+  // componentDidUpdate (prevProps, prevState) {
+  //   let appStateClients
+  //   appStateClients = JSON.parse(localStorage.getItem('AppStateClients'))
+  //   // for (const key in appStateClients) {
+  //   //   if (appStateClients[key] == null) {
+  //   //     delete appStateClients[key]
+  //   //   }
+  //   // }
+  //   if (prevState.appStateClients !== appStateClients) {
+  //     this.setState({ appStateClients: appStateClients })
+  //   }
+  // }
+
+  // componentWillUnmount() {
+
+  // }
 
   handleSubmit (e) {
     e.preventDefault();
-    
   }
 
   handleChange (e) {
@@ -93,7 +94,7 @@ class Client extends Component {
 
   // TODO: Lorsque je clique sur le bouton editer le profile je doit prendre le client dans this.state.appStateClients par rapport à son id et le changer avec celui dans la state client
   displayProfile = (e) => {
-    let userCardId, newAppStateClients
+    let userCardId
     userCardId = e.target.parentElement.parentElement.children[1].children[4].lastChild.data
     this.state.appStateClients.map(e => {
       if (e.id == userCardId) {
@@ -113,14 +114,17 @@ class Client extends Component {
     })
   };
 
-  // TODO Je n'arrive pas a envoyer cette props
-  actionsModify = () => {this.props.clientEdited(this.state.editClient)}
+
+  actionsModify = (event) => {
+    this.props.clientEdited(this.state.editClient)
+  }
 
   actionDelete = () => {
 
   }
 
   render () {
+    console.log("Je suis dans le render du client");
     return (
       <>
         {

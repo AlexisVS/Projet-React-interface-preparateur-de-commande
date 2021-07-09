@@ -25,7 +25,7 @@ class ClientInterface extends Component {
   //   }
   // }
 
-  clientEditedToApp (editedClient) { this.props.editedClient(editedClient); console.log("Bonjour"); }
+  clientEditedToApp (editedClient) { this.props.editedClient(editedClient) }
 
   render () {
     return (

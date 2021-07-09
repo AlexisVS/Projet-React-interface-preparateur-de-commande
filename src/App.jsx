@@ -197,34 +197,56 @@ class App extends Component {
         },
       ]
     };
-    this.newClientData = this.newClientData.bind(this);
-    this.componentDidUpdate = this.componentDidUpdate.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.componentDidUpdate = this.componentDidUpdate.bind(this);
+    this.componentWillUnmount = this.componentWillUnmount.bind(this);
+    this.newClientData = this.newClientData.bind(this);
     this.newEditedClientData = this.newEditedClientData.bind(this);
   }
 
-  newClientData (newClientData) {
-    if (newClientData !== null) {
-      this.setState({ clients: [...this.state.clients, newClientData] })
-      let storageClean;
-      storageClean = [...this.state.clients, newClientData];
-      for (const key in storageClean) {
+  componentDidMount () {
+    this.setState({ clients: JSON.parse(localStorage.getItem('appStateClients')) })
+    localStorage.setItem('appStateClients', JSON.stringify(this.state.clients))
+    // this.forceUpdate()
+  }
 
-        if (storageClean[key] == null) {
-          delete storageClean[key];
-        }
-      }
-      localStorage.setItem("AppStateClients", JSON.stringify(storageClean));
+
+  componentDidUpdate (prevProps, prevState) {
+    //   if (this.props.newClientData !== prevState.clients[prevState.clients.length - 1]) {
+    //     this.setState({ clients: [...this.state.clients, this.props.newClientData] });
+    //   }
+    //   // Todo : Je doit faire en sorte que quand le nom, le prenom, la societe, email change de la state clients qu"elle se mette a jour
+    if (this.props.editedClient !== prevProps.editClient) {
+      this.newEditedClientData()
+    }
+    //   if (prevState.clients !== this.state.clients) {
+    //     localStorage.setItem('appStateClients', JSON.stringify([...this.state.clients]))
+    //   }
+  }
+
+  componentWillUnmount () {
+    if (this.state.clients !== JSON.parse(localStorage.getItem('appStateClients'))) {
+      localStorage.setItem('appStateClients', JSON.stringify([...this.state.clients]))
+    }
+  }
+
+  newClientData (newClientData) {
+    if (newClientData !== null || newClientData.id !== "") {
+      this.setState({ clients: [...this.state.clients, newClientData] })
+      localStorage.setItem("appStateClients", JSON.stringify([...this.state.clients, newClientData]));
     }
 
   }
 
-  newEditedClientData (editedClient) {
-    if (editedClient !== null) {
-      let clients;
-      clients = [...this.state.clients];
 
-      clients.forEach(e => {
+  newEditedClientData (editedClient) {
+    console.log("J'arrive jusque ici");
+    if (editedClient.id !== "" || editedClient.id !== null || editedClient.id !== undefined) {
+      let newClientsState;
+      newClientsState = [...this.state.clients];
+
+      newClientsState.forEach(e => {
+
         if (e.id == editedClient.id) {
           e.firstName = editedClient.firstName;
           e.lastName = editedClient.lastName;
@@ -233,34 +255,12 @@ class App extends Component {
           e.tel = editedClient.tel;
         }
       });
-      this.setState({ clients: clients });
-      console.log(clients);
+      this.setState({ clients: newClientsState });
     }
   }
-
-  componentDidUpdate (prevProps, prevState) {
-    if (this.props.newClientData !== prevState.clients[prevState.clients.length - 1]) {
-      this.setState({ clients: [...this.state.clients, this.props.newClientData] });
-    }
-    // Todo : Je doit faire en sorte que quand le nom, le prenom, la societe, email change de la state clients qu"elle se mette a jour
-    if (this.props.editedClient !== prevProps.editedClient) {
-    }
-  }
-
-  componentDidMount () {
-    let storageClean;
-    storageClean = [...this.state.clients];
-    for (const key in storageClean) {
-
-      if (storageClean[key] == null) {
-        delete storageClean[key];
-      }
-    }
-    localStorage.setItem("AppStateClients", JSON.stringify(storageClean));
-  }
-
 
   render () {
+    console.log("Je suis dans le render de l'app");
     return (
       <>
         <BrowserRouter>

@@ -19,6 +19,7 @@ class NewClient extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.submit = this.submit.bind(this)
     this.componentDidUpdate = this.componentDidUpdate.bind(this)
+    this.submit = this.submit.bind(this)
   }
 
 
@@ -58,10 +59,21 @@ class NewClient extends Component {
     }
   }
 
-  submit () {
+  submit = () => {
     this.props.newClientData(this.state)
+    this.setState({
+      id: "",
+      firstName: "",
+      lastName: "",
+      society: "",
+      email: "",
+      tel: "",
+      order: [],
+      orderHistory: []
+    })
   }
 
+  // ! celui la fonctionne a 100%
   componentDidUpdate (prevProps) {
     if (this.props.newClientData !== prevProps.newClientData) {
       this.props.newClientData(this.state)
@@ -70,7 +82,7 @@ class NewClient extends Component {
 
   componentDidMount () {
     let appStateClients
-    appStateClients = JSON.parse(localStorage.getItem("AppStateClients"))
+    appStateClients = JSON.parse(localStorage.getItem("appStateClients"))
     if (appStateClients !== null) {
       this.setState({ id: appStateClients.length + 1 })
     } else if (appStateClients == null) {
