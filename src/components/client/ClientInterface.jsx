@@ -10,7 +10,7 @@ class ClientInterface extends Component {
     this.clientEditedToApp = this.clientEditedToApp.bind(this);
   }
 
-  // Renvoie le nouveaux client au state du component App
+  // ? Renvoie le nouveaux client au state du component App
   goToApp (newClientData) { this.props.newClient(newClientData) }
 
 

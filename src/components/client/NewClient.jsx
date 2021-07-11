@@ -21,7 +21,7 @@ class NewClient extends Component {
   }
 
 
-// ? formulaire -> desactive l'action
+  // ? formulaire -> desactive l'action
   handleSubmit (e) {
     e.preventDefault();
   }

@@ -200,6 +200,7 @@ class App extends Component {
     this.newClientData = this.newClientData.bind(this);
     this.newEditedClientData = this.newEditedClientData.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.componentWillUnmount = this.componentWillUnmount.bind(this)
   }
 
 
@@ -209,18 +210,22 @@ class App extends Component {
   }
 
 
+  // ? Met a jour le localStorage AppStateClients au démontage du component
+  componentWillUnmount () {
+    localStorage.setItem(AppStateClients, [...this.state.clients])
+  }
 
   // ?  A la venue de la nouvelle props newClientData qui vient de NewClient.jsx
   // ? Met a jour le state clients et le localStorage AppStateClients
   newClientData (newClientData) {
-    
+
     if (newClientData !== null && newClientData.id !== "" && newClientData.id != undefined) {
-      
+
       if (this.state.clients == [] || this.state.clients == undefined || this.state.clients == null) {
         this.setState({ clients: [newClientData] })
         localStorage.setItem("AppStateClients", JSON.stringify([newClientData]));
       }
-      
+
       else {
         this.setState({ clients: [...this.state.clients, newClientData] })
         let storageClean;
@@ -228,9 +233,9 @@ class App extends Component {
         localStorage.setItem("AppStateClients", JSON.stringify(storageClean));
       }
     }
-    
+
   }
-  
+
   // ?  A la venue de la nouvelle props editedClient qui vient de client.jsx
   // ? Met a jour le state clients et le localStorage AppStateClients
   newEditedClientData (editedClient) {
