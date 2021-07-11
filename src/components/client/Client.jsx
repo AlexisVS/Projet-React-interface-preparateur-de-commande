@@ -15,12 +15,6 @@ class Client extends Component {
       }
     }
     this.componentDidMount = this.componentDidMount.bind(this);
-<<<<<<< HEAD
-=======
-    // this.componentDidUpdate = this.componentDidUpdate.bind(this);
-    // this.componentWillUnmount = this.componentWillUnmount.bind(this);
-    this.saveClientState = this.saveClientState.bind(this);
->>>>>>> 6a45022fdd9ec98fdd63bddd6963731ca4a37d02
     this.actionDelete = this.actionDelete.bind(this);
     this.actionsModify = this.actionsModify.bind(this);
     this.handleChange = this.handleChange.bind(this);
