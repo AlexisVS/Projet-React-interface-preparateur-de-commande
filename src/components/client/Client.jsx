@@ -93,8 +93,10 @@ class Client extends Component {
 
   actionsModify = () => { this.props.clientEdited(this.state.editClient) }
 
-  actionDelete = () => {
-
+  actionDelete = (e) => {
+    let userId = e.target.parentElement.parentElement.children[1].children[4].lastChild.data
+    let appStateClients = [...this.state.appStateClients].filter(e => e.id != userId)
+    this.props.clientDeleted(appStateClients)
   }
 
   render () {
@@ -122,7 +124,7 @@ class Client extends Component {
                         className="clientCard-actions--modify">
                         <i className="fas fa-edit"></i>
                       </button>
-                      <button onClick={this.actionDelete} className="clientCard-actions--delete"><i className="fas fa-times"></i></button>
+                      <button onClick={(e) =>this.actionDelete(e)} className="clientCard-actions--delete"><i className="fas fa-times"></i></button>
                     </div>
                   </div>
                 )

@@ -8,13 +8,16 @@ class ClientInterface extends Component {
     super(props)
     this.goToApp = this.goToApp.bind(this);
     this.clientEditedToApp = this.clientEditedToApp.bind(this);
+    this.clientDeletedToApp = this.clientDeletedToApp.bind(this);
   }
 
   // ? Renvoie le nouveaux client au state du component App
   goToApp (newClientData) { this.props.newClient(newClientData) }
 
-
+// ? Renvoie la nouvelles liste de client à l'app
   clientEditedToApp (editedClient) { this.props.editedClient(editedClient) }
+  clientDeletedToApp (deletedClient) { this.props.deletedClient(deletedClient) }
+
 
   render () {
     return (
@@ -34,7 +37,7 @@ class ClientInterface extends Component {
               <NewClient newClientData={this.goToApp} />
             </div>
           </div>
-          <Client clientEdited={this.clientEditedToApp} />
+          <Client clientDeleted={this.clientDeletedToApp} clientEdited={this.clientEditedToApp} />
         </div>
       </section>
     );

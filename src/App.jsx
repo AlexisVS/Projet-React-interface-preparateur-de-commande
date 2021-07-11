@@ -199,6 +199,7 @@ class App extends Component {
     };
     this.newClientData = this.newClientData.bind(this);
     this.newEditedClientData = this.newEditedClientData.bind(this);
+    this.newDeletedClientData = this.newDeletedClientData.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.componentWillUnmount = this.componentWillUnmount.bind(this)
   }
@@ -214,6 +215,11 @@ class App extends Component {
   componentWillUnmount () {
     localStorage.setItem(AppStateClients, [...this.state.clients])
   }
+
+  // ? -------------------------------------------------------------------------- */
+  // ?   'new' au nom de mes fonction veut dire que je fait transiter une props     */
+  // ? -------------------------------------------------------------------------- */
+
 
   // ?  A la venue de la nouvelle props newClientData qui vient de NewClient.jsx
   // ? Met a jour le state clients et le localStorage AppStateClients
@@ -239,12 +245,12 @@ class App extends Component {
   // ?  A la venue de la nouvelle props editedClient qui vient de client.jsx
   // ? Met a jour le state clients et le localStorage AppStateClients
   newEditedClientData (editedClient) {
-    console.log(editedClient);
     if (editedClient !== null && editedClient.id !== "" && editedClient.id != undefined) {
       let clients;
       clients = [...this.state.clients];
-      console.log(clients);
+
       clients.forEach(e => {
+
         if (e.id == editedClient.id) {
           e.firstName = editedClient.firstName;
           e.lastName = editedClient.lastName;
@@ -253,13 +259,20 @@ class App extends Component {
           e.tel = editedClient.tel;
         }
       });
+
       this.setState({ clients: clients });
-      console.log("Je suis dans nexEditedClientData()");
-      console.log(clients);
       localStorage.setItem('AppStateClients', JSON.stringify(clients))
     }
   }
 
+  // ?  A la venue de la nouvelle props deletedClient qui vient de client.jsx
+  // ? Met a jour le state clients et le localStorage AppStateClients
+  newDeletedClientData (deletedClient) {
+    if (deletedClient !== null && deletedClient != undefined) {
+      this.setState({ clients: deletedClient });
+      localStorage.setItem('AppStateClients', JSON.stringify(deletedClient))
+    }
+  }
   render () {
     console.log(this.state.clients);
     return (
@@ -269,7 +282,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/client" component={() => <ClientInterface editedClient={this.newEditedClientData} newClient={this.newClientData} />} />
+            <Route path="/client" component={() => <ClientInterface deletedClient={this.newDeletedClientData} editedClient={this.newEditedClientData} newClient={this.newClientData} />} />
             <Route path="/preparator" component={PreparatorInterface} />
             <Route component={NotFound} />
           </Switch>

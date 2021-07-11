@@ -69,9 +69,13 @@ class NewClient extends Component {
   componentDidMount () {
     let appStateClients
     appStateClients = JSON.parse(localStorage.getItem("AppStateClients"))
-    if (appStateClients !== null) {
+
+    if (appStateClients !== null && appStateClients.length != 0) {
+
       this.setState({ id: appStateClients[appStateClients.length - 1].id + 1 })
-    } else if (appStateClients == null) {
+
+    } else if (appStateClients == null || appStateClients.length == 0) {
+      
       this.setState({ id: 1 })
     }
   }
