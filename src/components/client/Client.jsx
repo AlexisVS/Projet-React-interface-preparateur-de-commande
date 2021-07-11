@@ -4,7 +4,7 @@ class Client extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      appStateClients: JSON.parse(localStorage.getItem('AppStateClients')),
+      appStateClients: null,
       editClient: {
         id: "",
         firstName: "",
@@ -14,14 +14,17 @@ class Client extends Component {
         tel: "",
       }
     }
-    this.userCard = React.createRef();
-    this.saveClientState = this.saveClientState.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
+<<<<<<< HEAD
+=======
+    // this.componentDidUpdate = this.componentDidUpdate.bind(this);
+    // this.componentWillUnmount = this.componentWillUnmount.bind(this);
+    this.saveClientState = this.saveClientState.bind(this);
+>>>>>>> 6a45022fdd9ec98fdd63bddd6963731ca4a37d02
     this.actionDelete = this.actionDelete.bind(this);
     this.actionsModify = this.actionsModify.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.renderClients = this.renderClients.bind(this)
   }
 
   // ? Enregistre les données de appStateClients du localStorage dans le state
@@ -71,7 +74,7 @@ class Client extends Component {
   }
 
   displayProfile = (e) => {
-    let userCardId, newAppStateClients
+    let userCardId
     userCardId = e.target.parentElement.parentElement.children[1].children[4].lastChild.data
     this.state.appStateClients.map(e => {
       if (e.id == userCardId) {
@@ -98,6 +101,7 @@ class Client extends Component {
   }
 
   render () {
+    console.log("Je suis dans le render du client");
     return (
       <>
         {

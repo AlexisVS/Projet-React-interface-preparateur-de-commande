@@ -63,12 +63,22 @@ class NewClient extends Component {
   // ? envoie les données du nouveau client
   submit () {
     this.props.newClientData(this.state)
+    this.setState({
+      id: "",
+      firstName: "",
+      lastName: "",
+      society: "",
+      email: "",
+      tel: "",
+      order: [],
+      orderHistory: []
+    })
   }
 
   // ? Permet de prendre l'id du dernier client
   componentDidMount () {
     let appStateClients
-    appStateClients = JSON.parse(localStorage.getItem("AppStateClients"))
+    appStateClients = JSON.parse(localStorage.getItem("appStateClients"))
     if (appStateClients !== null) {
       this.setState({ id: appStateClients[appStateClients.length - 1].id + 1 })
     } else if (appStateClients == null) {
