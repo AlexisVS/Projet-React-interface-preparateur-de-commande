@@ -34,196 +34,211 @@ class App extends Component {
         },
       ],
       clients: [
-        {
-          id: 1,
-          firstName: "Christophe",
-          lastName: "Brieux",
-          society: "Polaris",
-          email: "christophe.brieux@polaris.com",
-          tel: "0032 485 25 87 98",
-          order: [
-            {
-              name: 'Peluche Cactus B0Y',
-              quantity: 1
-            },
-            {
-              name: 'Huawei P10 Lite',
-              quantity: 1
-            },
-            {
-              name: 'Briquet BIC Rouge',
-              quantity: 15
-            },
-          ],
-          orderHistory: [],
-        },
-        {
-          id: 2,
-          firstName: "Christophe",
-          lastName: "Brieux",
-          society: "Polaris",
-          email: "christophe.brieux@polaris.com",
-          tel: "0032 485 25 87 98",
-          order: [
-            {
-              name: 'Peluche Cactus B0Y',
-              quantity: 1
-            },
-            {
-              name: 'Huawei P10 Lite',
-              quantity: 1
-            },
-            {
-              name: 'Briquet BIC Rouge',
-              quantity: 15
-            },
-          ],
-          orderHistory: [],
-        },
-        {
-          id: 3,
-          firstName: "Christophe",
-          lastName: "Brieux",
-          society: "Polaris",
-          email: "christophe.brieux@polaris.com",
-          tel: "0032 485 25 87 98",
-          order: [
-            {
-              name: 'Peluche Cactus B0Y',
-              quantity: 1
-            },
-            {
-              name: 'Huawei P10 Lite',
-              quantity: 1
-            },
-            {
-              name: 'Briquet BIC Rouge',
-              quantity: 15
-            },
-          ],
-          orderHistory: [],
-        },
-        {
-          id: 4,
-          firstName: "Christophe",
-          lastName: "Brieux",
-          society: "Polaris",
-          email: "christophe.brieux@polaris.com",
-          tel: "0032 485 25 87 98",
-          order: [
-            {
-              name: 'Peluche Cactus B0Y',
-              quantity: 1
-            },
-            {
-              name: 'Huawei P10 Lite',
-              quantity: 1
-            },
-            {
-              name: 'Briquet BIC Rouge',
-              quantity: 15
-            },
-          ],
-          orderHistory: [],
-        },
-        {
-          id: 5,
-          firstName: "Christophe",
-          lastName: "Brieux",
-          society: "Polaris",
-          email: "christophe.brieux@polaris.com",
-          tel: "0032 485 25 87 98",
-          order: [
-            {
-              name: 'Peluche Cactus B0Y',
-              quantity: 1
-            },
-            {
-              name: 'Huawei P10 Lite',
-              quantity: 1
-            },
-            {
-              name: 'Briquet BIC Rouge',
-              quantity: 15
-            },
-          ],
-          orderHistory: [],
-        },
-        {
-          id: 6,
-          firstName: "Christophe",
-          lastName: "Brieux",
-          society: "Polaris",
-          email: "christophe.brieux@polaris.com",
-          tel: "0032 485 25 87 98",
-          order: [
-            {
-              name: 'Peluche Cactus B0Y',
-              quantity: 1
-            },
-            {
-              name: 'Huawei P10 Lite',
-              quantity: 1
-            },
-            {
-              name: 'Briquet BIC Rouge',
-              quantity: 15
-            },
-          ],
-          orderHistory: [],
-        },
-        {
-          id: 7,
-          firstName: "Christophe",
-          lastName: "Brieux",
-          society: "Polaris",
-          email: "christophe.brieux@polaris.com",
-          tel: "0032 485 25 87 98",
-          order: [
-            {
-              name: 'Peluche Cactus B0Y',
-              quantity: 1
-            },
-            {
-              name: 'Huawei P10 Lite',
-              quantity: 1
-            },
-            {
-              name: 'Briquet BIC Rouge',
-              quantity: 15
-            },
-          ],
-          orderHistory: [],
-        },
+        // {
+        //   id: 1,
+        //   firstName: "Christophe",
+        //   lastName: "Brieux",
+        //   society: "Polaris",
+        //   email: "christophe.brieux@polaris.com",
+        //   tel: "0032 485 25 87 98",
+        //   order: [
+        //     {
+        //       name: 'Peluche Cactus B0Y',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Huawei P10 Lite',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Briquet BIC Rouge',
+        //       quantity: 15
+        //     },
+        //   ],
+        //   orderHistory: [],
+        // },
+        // {
+        //   id: 2,
+        //   firstName: "Christophe",
+        //   lastName: "Brieux",
+        //   society: "Polaris",
+        //   email: "christophe.brieux@polaris.com",
+        //   tel: "0032 485 25 87 98",
+        //   order: [
+        //     {
+        //       name: 'Peluche Cactus B0Y',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Huawei P10 Lite',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Briquet BIC Rouge',
+        //       quantity: 15
+        //     },
+        //   ],
+        //   orderHistory: [],
+        // },
+        // {
+        //   id: 3,
+        //   firstName: "Christophe",
+        //   lastName: "Brieux",
+        //   society: "Polaris",
+        //   email: "christophe.brieux@polaris.com",
+        //   tel: "0032 485 25 87 98",
+        //   order: [
+        //     {
+        //       name: 'Peluche Cactus B0Y',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Huawei P10 Lite',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Briquet BIC Rouge',
+        //       quantity: 15
+        //     },
+        //   ],
+        //   orderHistory: [],
+        // },
+        // {
+        //   id: 4,
+        //   firstName: "Christophe",
+        //   lastName: "Brieux",
+        //   society: "Polaris",
+        //   email: "christophe.brieux@polaris.com",
+        //   tel: "0032 485 25 87 98",
+        //   order: [
+        //     {
+        //       name: 'Peluche Cactus B0Y',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Huawei P10 Lite',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Briquet BIC Rouge',
+        //       quantity: 15
+        //     },
+        //   ],
+        //   orderHistory: [],
+        // },
+        // {
+        //   id: 5,
+        //   firstName: "Christophe",
+        //   lastName: "Brieux",
+        //   society: "Polaris",
+        //   email: "christophe.brieux@polaris.com",
+        //   tel: "0032 485 25 87 98",
+        //   order: [
+        //     {
+        //       name: 'Peluche Cactus B0Y',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Huawei P10 Lite',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Briquet BIC Rouge',
+        //       quantity: 15
+        //     },
+        //   ],
+        //   orderHistory: [],
+        // },
+        // {
+        //   id: 6,
+        //   firstName: "Christophe",
+        //   lastName: "Brieux",
+        //   society: "Polaris",
+        //   email: "christophe.brieux@polaris.com",
+        //   tel: "0032 485 25 87 98",
+        //   order: [
+        //     {
+        //       name: 'Peluche Cactus B0Y',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Huawei P10 Lite',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Briquet BIC Rouge',
+        //       quantity: 15
+        //     },
+        //   ],
+        //   orderHistory: [],
+        // },
+        // {
+        //   id: 7,
+        //   firstName: "Christophe",
+        //   lastName: "Brieux",
+        //   society: "Polaris",
+        //   email: "christophe.brieux@polaris.com",
+        //   tel: "0032 485 25 87 98",
+        //   order: [
+        //     {
+        //       name: 'Peluche Cactus B0Y',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Huawei P10 Lite',
+        //       quantity: 1
+        //     },
+        //     {
+        //       name: 'Briquet BIC Rouge',
+        //       quantity: 15
+        //     },
+        //   ],
+        //   orderHistory: [],
+        // },
       ]
     };
     this.newClientData = this.newClientData.bind(this);
-    this.componentDidUpdate = this.componentDidUpdate.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
     this.newEditedClientData = this.newEditedClientData.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
+
+  // ? permet de récuperer la liste des clients dans le localStorage
+  componentDidMount () {
+    this.setState({ clients: JSON.parse(localStorage.getItem('AppStateClients')) })
+  }
+
+
+
+  // ?  A la venue de la nouvelle props newClientData qui vient de NewClient.jsx
+  // ? Met a jour le state clients et le localStorage AppStateClients
   newClientData (newClientData) {
-    if (newClientData !== null) {
-      this.setState({ clients: [...this.state.clients, newClientData] })
-      let storageClean;
-      storageClean = [...this.state.clients, newClientData];
-      for (const key in storageClean) {
-
-        if (storageClean[key] == null) {
-          delete storageClean[key];
-        }
+    
+    if (newClientData !== null && newClientData.id !== "" && newClientData.id != undefined) {
+      
+      if (this.state.clients == [] || this.state.clients == undefined || this.state.clients == null) {
+        this.setState({ clients: [newClientData] })
+        localStorage.setItem("AppStateClients", JSON.stringify([newClientData]));
       }
-      localStorage.setItem("AppStateClients", JSON.stringify(storageClean));
+      
+      else {
+        this.setState({ clients: [...this.state.clients, newClientData] })
+        let storageClean;
+        storageClean = [...this.state.clients, newClientData];
+        localStorage.setItem("AppStateClients", JSON.stringify(storageClean));
+      }
     }
-
+    
   }
-
+  
+  // ?  A la venue de la nouvelle props editedClient qui vient de client.jsx
+  // ? Met a jour le state clients et le localStorage AppStateClients
   newEditedClientData (editedClient) {
-    if (editedClient !== null) {
+    console.log(editedClient);
+    if (editedClient !== null && editedClient.id !== "" && editedClient.id != undefined) {
       let clients;
       clients = [...this.state.clients];
-
+      console.log(clients);
       clients.forEach(e => {
         if (e.id == editedClient.id) {
           e.firstName = editedClient.firstName;
@@ -234,33 +249,14 @@ class App extends Component {
         }
       });
       this.setState({ clients: clients });
+      console.log("Je suis dans nexEditedClientData()");
       console.log(clients);
+      localStorage.setItem('AppStateClients', JSON.stringify(clients))
     }
   }
-
-  componentDidUpdate (prevProps, prevState) {
-    if (this.props.newClientData !== prevState.clients[prevState.clients.length - 1]) {
-      this.setState({ clients: [...this.state.clients, this.props.newClientData] });
-    }
-    // Todo : Je doit faire en sorte que quand le nom, le prenom, la societe, email change de la state clients qu"elle se mette a jour
-    if (this.props.editedClient !== prevProps.editedClient) {
-    }
-  }
-
-  componentDidMount () {
-    let storageClean;
-    storageClean = [...this.state.clients];
-    for (const key in storageClean) {
-
-      if (storageClean[key] == null) {
-        delete storageClean[key];
-      }
-    }
-    localStorage.setItem("AppStateClients", JSON.stringify(storageClean));
-  }
-
 
   render () {
+    console.log(this.state.clients);
     return (
       <>
         <BrowserRouter>

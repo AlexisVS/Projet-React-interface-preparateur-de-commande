@@ -7,23 +7,12 @@ class ClientInterface extends Component {
   constructor(props) {
     super(props)
     this.goToApp = this.goToApp.bind(this);
-    // this.componentDidUpdate = this.componentDidUpdate.bind(this);
     this.clientEditedToApp = this.clientEditedToApp.bind(this);
   }
 
   // Renvoie le nouveaux client au state du component App
   goToApp (newClientData) { this.props.newClient(newClientData) }
 
-  // componentDidUpdate (prevProps, prevState) {
-  //   if (prevProps.newClientData !== this.props.newClient) {
-  //     // Rafraichit la props newClient
-  //     this.props.newClient(this.props.newClient);
-  //   }
-
-  //   if (prevProps.clientEdited !== this.props.editClient) {
-  //     this.props.clientEdited(this.props.clientEdited)
-  //   }
-  // }
 
   clientEditedToApp (editedClient) { this.props.editedClient(editedClient); console.log("Bonjour"); }
 
@@ -38,7 +27,7 @@ class ClientInterface extends Component {
                 <span className="clientInterface-header-left-title-span"> client</span>
               </h1>
               <p className="clientInterface-header-left-text">
-                Grâce à l'interface client, vous avez la possibilité de geré et satisfaire n'importe quel client. Vous pouvez ajouter, modifier ou supprimer n'importe quel client.
+                Grâce à l'interface client, vous avez la possibilité de geré en ajoutant, modifiant ou supprimant n'importe quel client.
                 <br /><br />
                 Et acceder au magasin une fois un client sélectionné et traiter ça demande auprès de vous.
               </p>

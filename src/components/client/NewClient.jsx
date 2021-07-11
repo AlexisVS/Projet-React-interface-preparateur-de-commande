@@ -18,14 +18,16 @@ class NewClient extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.submit = this.submit.bind(this)
-    this.componentDidUpdate = this.componentDidUpdate.bind(this)
   }
 
 
+// ? formulaire -> desactive l'action
   handleSubmit (e) {
     e.preventDefault();
   }
 
+
+  //? formulaire -> Update le state par rapport au input
   handleChange (e) {
     switch (e.target.name) {
       case "firstName":
@@ -58,23 +60,19 @@ class NewClient extends Component {
     }
   }
 
+  // ? envoie les données du nouveau client
   submit () {
     this.props.newClientData(this.state)
   }
 
-  componentDidUpdate (prevProps) {
-    if (this.props.newClientData !== prevProps.newClientData) {
-      this.props.newClientData(this.state)
-    }
-  }
-
+  // ? Permet de prendre l'id du dernier client
   componentDidMount () {
     let appStateClients
     appStateClients = JSON.parse(localStorage.getItem("AppStateClients"))
     if (appStateClients !== null) {
-      this.setState({ id: appStateClients.length + 1 })
+      this.setState({ id: appStateClients[appStateClients.length - 1].id + 1 })
     } else if (appStateClients == null) {
-      this.setState({ id: Date.now })
+      this.setState({ id: 1 })
     }
   }
 

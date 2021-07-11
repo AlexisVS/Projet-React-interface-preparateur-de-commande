@@ -17,7 +17,6 @@ class Client extends Component {
     this.userCard = React.createRef();
     this.saveClientState = this.saveClientState.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
-    this.componentDidUpdate = this.componentDidUpdate.bind(this);
     this.actionDelete = this.actionDelete.bind(this);
     this.actionsModify = this.actionsModify.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -29,38 +28,18 @@ class Client extends Component {
   saveClientState = () => {
     let appStateClients
     appStateClients = JSON.parse(localStorage.getItem('AppStateClients'))
-    for (const key in appStateClients) {
-      if (appStateClients[key] == null) {
-        delete appStateClients[key]
-      }
-    }
+    console.log("Je me mets a jour dans clients -> saveClienState()");
     console.log(appStateClients);
     this.setState({ appStateClients: appStateClients })
   }
+
   componentDidMount = () => {
     this.saveClientState
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
-    let appStateClients
-    appStateClients = JSON.parse(localStorage.getItem('AppStateClients'))
-    for (const key in appStateClients) {
-      if (appStateClients[key] == null) {
-        delete appStateClients[key]
-      }
-    }
-    if (prevState.appStateClients !== appStateClients) {
-      this.saveClientState
-    }
-    if (this.props.clientEdited !== prevProps.clientEdited && this.state.editClient.id !== "") {
-      this.actionsModify
-      console.log("héhé");
-    }
-  }
-
   handleSubmit (e) {
     e.preventDefault();
-    
+
   }
 
   handleChange (e) {
@@ -91,7 +70,6 @@ class Client extends Component {
     this.setState({ editClient: editClientState });
   }
 
-  // TODO: Lorsque je clique sur le bouton editer le profile je doit prendre le client dans this.state.appStateClients par rapport à son id et le changer avec celui dans la state client
   displayProfile = (e) => {
     let userCardId, newAppStateClients
     userCardId = e.target.parentElement.parentElement.children[1].children[4].lastChild.data
@@ -113,8 +91,7 @@ class Client extends Component {
     })
   };
 
-  // TODO Je n'arrive pas a envoyer cette props
-  actionsModify = () => {this.props.clientEdited(this.state.editClient)}
+  actionsModify = () => { this.props.clientEdited(this.state.editClient) }
 
   actionDelete = () => {
 
