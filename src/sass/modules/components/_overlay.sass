@@ -1,5 +1,6 @@
 // Fonctionne avec bootstrap 
-.bs_overlay
+
+.bs_overlay //A mettre sur modal-content
     background-color: lighten($color-background, 10%)
     box-shadow: 0 0 3px 0 lighten($color-background, 5%)
     .modal-header
@@ -13,6 +14,10 @@
             margin-right: 2.5%
     .modal-footer
         border: 0
+        button
+            color: $color-text !important
+            &:hover
+                color: white !important
 
 .overlay
     position: absolute

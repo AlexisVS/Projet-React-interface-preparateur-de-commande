@@ -34,167 +34,167 @@ class App extends Component {
         },
       ],
       clients: [
-        // {
-        //   id: 1,
-        //   firstName: "Christophe",
-        //   lastName: "Brieux",
-        //   society: "Polaris",
-        //   email: "christophe.brieux@polaris.com",
-        //   tel: "0032 485 25 87 98",
-        //   order: [
-        //     {
-        //       name: 'Peluche Cactus B0Y',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Huawei P10 Lite',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Briquet BIC Rouge',
-        //       quantity: 15
-        //     },
-        //   ],
-        //   orderHistory: [],
-        // },
-        // {
-        //   id: 2,
-        //   firstName: "Christophe",
-        //   lastName: "Brieux",
-        //   society: "Polaris",
-        //   email: "christophe.brieux@polaris.com",
-        //   tel: "0032 485 25 87 98",
-        //   order: [
-        //     {
-        //       name: 'Peluche Cactus B0Y',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Huawei P10 Lite',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Briquet BIC Rouge',
-        //       quantity: 15
-        //     },
-        //   ],
-        //   orderHistory: [],
-        // },
-        // {
-        //   id: 3,
-        //   firstName: "Christophe",
-        //   lastName: "Brieux",
-        //   society: "Polaris",
-        //   email: "christophe.brieux@polaris.com",
-        //   tel: "0032 485 25 87 98",
-        //   order: [
-        //     {
-        //       name: 'Peluche Cactus B0Y',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Huawei P10 Lite',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Briquet BIC Rouge',
-        //       quantity: 15
-        //     },
-        //   ],
-        //   orderHistory: [],
-        // },
-        // {
-        //   id: 4,
-        //   firstName: "Christophe",
-        //   lastName: "Brieux",
-        //   society: "Polaris",
-        //   email: "christophe.brieux@polaris.com",
-        //   tel: "0032 485 25 87 98",
-        //   order: [
-        //     {
-        //       name: 'Peluche Cactus B0Y',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Huawei P10 Lite',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Briquet BIC Rouge',
-        //       quantity: 15
-        //     },
-        //   ],
-        //   orderHistory: [],
-        // },
-        // {
-        //   id: 5,
-        //   firstName: "Christophe",
-        //   lastName: "Brieux",
-        //   society: "Polaris",
-        //   email: "christophe.brieux@polaris.com",
-        //   tel: "0032 485 25 87 98",
-        //   order: [
-        //     {
-        //       name: 'Peluche Cactus B0Y',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Huawei P10 Lite',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Briquet BIC Rouge',
-        //       quantity: 15
-        //     },
-        //   ],
-        //   orderHistory: [],
-        // },
-        // {
-        //   id: 6,
-        //   firstName: "Christophe",
-        //   lastName: "Brieux",
-        //   society: "Polaris",
-        //   email: "christophe.brieux@polaris.com",
-        //   tel: "0032 485 25 87 98",
-        //   order: [
-        //     {
-        //       name: 'Peluche Cactus B0Y',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Huawei P10 Lite',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Briquet BIC Rouge',
-        //       quantity: 15
-        //     },
-        //   ],
-        //   orderHistory: [],
-        // },
-        // {
-        //   id: 7,
-        //   firstName: "Christophe",
-        //   lastName: "Brieux",
-        //   society: "Polaris",
-        //   email: "christophe.brieux@polaris.com",
-        //   tel: "0032 485 25 87 98",
-        //   order: [
-        //     {
-        //       name: 'Peluche Cactus B0Y',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Huawei P10 Lite',
-        //       quantity: 1
-        //     },
-        //     {
-        //       name: 'Briquet BIC Rouge',
-        //       quantity: 15
-        //     },
-        //   ],
-        //   orderHistory: [],
-        // },
+        {
+          id: 1,
+          firstName: "Christophe",
+          lastName: "Brieux",
+          society: "Polaris",
+          email: "christophe.brieux@polaris.com",
+          tel: "0032 485 25 87 98",
+          order: [
+            {
+              name: 'Peluche Cactus B0Y',
+              quantity: 1
+            },
+            {
+              name: 'Huawei P10 Lite',
+              quantity: 1
+            },
+            {
+              name: 'Briquet BIC Rouge',
+              quantity: 15
+            },
+          ],
+          orderHistory: [],
+        },
+        {
+          id: 2,
+          firstName: "Christophe",
+          lastName: "Brieux",
+          society: "Polaris",
+          email: "christophe.brieux@polaris.com",
+          tel: "0032 485 25 87 98",
+          order: [
+            {
+              name: 'Peluche Cactus B0Y',
+              quantity: 1
+            },
+            {
+              name: 'Huawei P10 Lite',
+              quantity: 1
+            },
+            {
+              name: 'Briquet BIC Rouge',
+              quantity: 15
+            },
+          ],
+          orderHistory: [],
+        },
+        {
+          id: 3,
+          firstName: "Christophe",
+          lastName: "Brieux",
+          society: "Polaris",
+          email: "christophe.brieux@polaris.com",
+          tel: "0032 485 25 87 98",
+          order: [
+            {
+              name: 'Peluche Cactus B0Y',
+              quantity: 1
+            },
+            {
+              name: 'Huawei P10 Lite',
+              quantity: 1
+            },
+            {
+              name: 'Briquet BIC Rouge',
+              quantity: 15
+            },
+          ],
+          orderHistory: [],
+        },
+        {
+          id: 4,
+          firstName: "Christophe",
+          lastName: "Brieux",
+          society: "Polaris",
+          email: "christophe.brieux@polaris.com",
+          tel: "0032 485 25 87 98",
+          order: [
+            {
+              name: 'Peluche Cactus B0Y',
+              quantity: 1
+            },
+            {
+              name: 'Huawei P10 Lite',
+              quantity: 1
+            },
+            {
+              name: 'Briquet BIC Rouge',
+              quantity: 15
+            },
+          ],
+          orderHistory: [],
+        },
+        {
+          id: 5,
+          firstName: "Christophe",
+          lastName: "Brieux",
+          society: "Polaris",
+          email: "christophe.brieux@polaris.com",
+          tel: "0032 485 25 87 98",
+          order: [
+            {
+              name: 'Peluche Cactus B0Y',
+              quantity: 1
+            },
+            {
+              name: 'Huawei P10 Lite',
+              quantity: 1
+            },
+            {
+              name: 'Briquet BIC Rouge',
+              quantity: 15
+            },
+          ],
+          orderHistory: [],
+        },
+        {
+          id: 6,
+          firstName: "Christophe",
+          lastName: "Brieux",
+          society: "Polaris",
+          email: "christophe.brieux@polaris.com",
+          tel: "0032 485 25 87 98",
+          order: [
+            {
+              name: 'Peluche Cactus B0Y',
+              quantity: 1
+            },
+            {
+              name: 'Huawei P10 Lite',
+              quantity: 1
+            },
+            {
+              name: 'Briquet BIC Rouge',
+              quantity: 15
+            },
+          ],
+          orderHistory: [],
+        },
+        {
+          id: 7,
+          firstName: "Christophe",
+          lastName: "Brieux",
+          society: "Polaris",
+          email: "christophe.brieux@polaris.com",
+          tel: "0032 485 25 87 98",
+          order: [
+            {
+              name: 'Peluche Cactus B0Y',
+              quantity: 1
+            },
+            {
+              name: 'Huawei P10 Lite',
+              quantity: 1
+            },
+            {
+              name: 'Briquet BIC Rouge',
+              quantity: 15
+            },
+          ],
+          orderHistory: [],
+        },
       ]
     };
     this.newClientData = this.newClientData.bind(this);

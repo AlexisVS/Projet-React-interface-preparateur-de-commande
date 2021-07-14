@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Shop from "./Shop"
 
 class Client extends Component {
   constructor(props) {
@@ -124,7 +125,8 @@ class Client extends Component {
                         className="clientCard-actions--modify">
                         <i className="fas fa-edit"></i>
                       </button>
-                      <button onClick={(e) =>this.actionDelete(e)} className="clientCard-actions--delete"><i className="fas fa-times"></i></button>
+                      <Shop />
+                      <button onClick={(e) => this.actionDelete(e)} className="clientCard-actions--delete"><i className="fas fa-times"></i></button>
                     </div>
                   </div>
                 )

@@ -1,12 +1,13 @@
 .clientInterface
     margin-right: auto
     margin-left: auto
-    margin-top: 160px
+    margin-top: 140px
     width: 70vw
     display: flex
     flex-wrap: wrap
     justify-content: flex-start
     .clientInterface-header
+        width: 100%
         margin-left: 10px
         display: flex
         flex-wrap: wrap
@@ -26,10 +27,13 @@
                 font-size: 1.25rem
                 padding: 0.5rem 1rem
                 margin-bottom: 30px
-        .clientInterface-header-right //? La ou sont afficher tous les clients
-            display: flex
-            justify-content: end
-            align-items: center
+    .clientInterface-body
+        display: grid
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+        grid-auto-rows: max-content
+        width: 100%
+        grid-gap: 10px
+
 @media screen and ( max-width: 1650px )
     .clientInterface
         width: 83vw
@@ -58,3 +62,4 @@
                     display: block
                     margin: 10px auto
             .clientInterface-header-right
+    .clientInterface-body
