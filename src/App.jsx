@@ -18,16 +18,19 @@ class App extends Component {
     this.state = {
       inventory: [
         {
+          id: 1,
           name: 'Peluche Cactus B0Y',
           price: 3658.85,
           stock: 15
         },
         {
+          id: 2,
           name: 'Huawei P10 Lite',
           price: 299.99,
           stock: 357
         },
         {
+          id: 3,
           name: 'Briquet BIC Rouge',
           price: 1.50,
           stock: 62
@@ -208,12 +211,14 @@ class App extends Component {
   // ? permet de récuperer la liste des clients dans le localStorage
   componentDidMount () {
     this.setState({ clients: JSON.parse(localStorage.getItem('AppStateClients')) })
+    localStorage.setItem("inventory", JSON.stringify([...this.state.inventory]))
+
   }
 
 
   // ? Met a jour le localStorage AppStateClients au démontage du component
   componentWillUnmount () {
-    localStorage.setItem(AppStateClients, [...this.state.clients])
+    localStorage.setItem("AppStateClients", JSON.stringify([...this.state.clients]))
   }
 
   // ? -------------------------------------------------------------------------- */

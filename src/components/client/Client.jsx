@@ -125,7 +125,11 @@ class Client extends Component {
                         className="clientCard-actions--modify">
                         <i className="fas fa-edit"></i>
                       </button>
-                      <Shop />
+                      {/* <!-- Button trigger modal --> */}
+                      <button type="button" className="clientCard-actions--shop" data-bs-toggle="modal" data-bs-target="#shopModal">
+                        <i className="fas fa-store"></i>
+                      </button>
+                      <Shop currentUser={e.id} />
                       <button onClick={(e) => this.actionDelete(e)} className="clientCard-actions--delete"><i className="fas fa-times"></i></button>
                     </div>
                   </div>

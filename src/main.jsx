@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import "./sass/app.sass"
-import "@fortawesome/fontawesome-free/js/all.min.js"
 import "normalize.css/normalize.css"
+import "@fortawesome/fontawesome-free/js/all.min.js"
 import "bootstrap/dist/js/bootstrap.bundle.min"
+import "./sass/app.sass"
 
 ReactDOM.render(
   <React.StrictMode>

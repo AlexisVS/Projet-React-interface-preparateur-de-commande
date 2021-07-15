@@ -1,3 +1,7 @@
+#shopModalLabel
+    font-size: 2rem
+    margin: 0
+    margin-left: 5px
 .clientCard
     display: flex
     align-items: center
@@ -18,7 +22,7 @@
         flex-direction: column
         justify-content: space-around
         height: 100%
-        button
+        .clientCard-actions--modify
             cursor: pointer
             box-shadow: none
             border: none
@@ -36,10 +40,47 @@
                 pointer-events: none
                 path
                     pointer-events: none
-        .clientCard-actions--modify
+            svg
+                margin-left: 3px
+                font-size: 1.4rem
         .clientCard-actions--shop
-
+            cursor: pointer
+            box-shadow: none
+            border: none
+            background-color: transparent
+            padding-right: 0
+            padding-left: 9px
+            color: transparentize($color-text, 1% )
+            transition: color 1s 0.2s
+            &:focus
+                outline: none
+            svg
+                margin: 0
+                padding: 0
+                font-size: 1.5rem
+                pointer-events: none
+                path
+                    pointer-events: none
         .clientCard-actions--delete
+            cursor: pointer
+            box-shadow: none
+            border: none
+            background-color: transparent
+            padding-right: 0
+            padding-left: 9px
+            color: transparentize($color-text, 1% )
+            transition: color 1s 0.2s
+            &:focus
+                outline: none
+            svg
+                margin: 0
+                padding: 0
+                font-size: 1.5rem
+                pointer-events: none
+                path
+                    pointer-events: none
+            svg
+                font-size: 2rem
 
     &:hover
         background-color: lighten($color-background, 15%)
@@ -49,8 +90,20 @@
             .clientCard-actions--modify,
             .clientCard-actions--shop,
             .clientCard-actions--delete
-                transition: color 1s
+                transition: color 1s 0.2s
                 color: transparentize($color-text, 0%)
+            .clientCard-actions--modify
+                &:hover
+                    transition: color 1s
+                    color: $color-blue
+            .clientCard-actions--shop
+                &:hover
+                    transition: color 1s
+                    color: $color-green
+            .clientCard-actions--delete
+                &:hover
+                    transition: color 1s
+                    color: $color-red
     svg
         font-size: 40px
         margin-right: 10px
@@ -72,3 +125,6 @@
             width: 100%
             strong
                 user-select: none
+@media screen and ( max-width: 550px )
+    .clientCard
+        margin: 0 6px

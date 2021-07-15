@@ -7,7 +7,7 @@ body, #root
     display: grid
     grid-template-rows: auto 1fr auto
 
-h1,h2,h3,h4,h5,h6
+h1,h2,h3,h4,h5,h6,thead
     font-family: 'Source Sans Pro Bold', sans-serif
     color: $color-text
 
@@ -27,7 +27,7 @@ a
         color: lighten($color-blue, 25%)
         transition: color 350ms
 
-p
+p, input, tbody
     font-family: "Rubik", sans-serif
     color: $color-text
 
@@ -37,7 +37,8 @@ p
 
 .d-none
     display: none
-
+.whiteSpace-nowrap
+    white-space: nowrap
 
 /* -------------------------------------------------------------------------- */
 /*                                   Colors                                   */
@@ -107,6 +108,9 @@ p
 .border-4
     border-style: solid
     border-width: 4px
+.border-5
+    border-style: solid
+    border-width: 5px
 .border-5
     border-style: solid
     border-width: 5px

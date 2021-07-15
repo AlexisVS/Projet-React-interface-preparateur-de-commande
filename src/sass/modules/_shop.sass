@@ -1,0 +1,65 @@
+.modal-shadow
+  box-shadow: 0 0 25px 0 lighten($color-background, 47%), inset 0 0 8px 0 lighten(transparentize($color-background, 0.3), 47%)
+.shop-wrapper
+  .shop
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr))
+    grid-gap: 20px
+    .shop-article-wrapper
+      box-shadow: 0 0 18px 0 lighten($color-background, 42%), inset 0 0 18px 0 lighten($color-background, 42%)
+      border-radius: 12px
+      padding: 20px
+      transition: all 0.7s
+      display: flex
+      justify-content: center
+      align-items: center
+      &:hover
+        border-radius: 15px
+        box-shadow: 0 0 25px 0 lighten($color-background, 47%), inset 0 0 8px 0 lighten(transparentize($color-background, 0.3), 47%)
+        padding: 0
+        margin: 20px
+        transition: all 0.7s
+        .shop-article
+          .shop-article-quantity
+            input
+              background-color: transparent !important
+              box-shadow: 0 0 25px 0 lighten($color-background, 47%), inset 0 0 8px 0 lighten(transparentize($color-background, 0.3), 47%)
+              transition: all 0.8s
+              // &:hover
+              //   box-shadow: 0 0 25px 0 lighten($color-background, 47%), inset 0 0 8px 0 lighten(transparentize($color-background, 0.3), 47%)
+
+      .shop-article
+        width: 265px
+        display: flex
+        margin-left: 5px
+        margin-bottom: 5px
+        line-height: 2.5
+        display: flex
+        justify-content: center
+        flex-direction: column
+        padding-top: 20px
+        p
+          margin: 0
+        .shop-article-quantity
+          margin-bottom: 20px
+          display: flex
+          input[type=number]::-webkit-inner-spin-button
+            opacity: 0
+          input[type=number]
+            -moz-appearance: textfield
+            text-align: center
+            &::-webkit-inner-spin-button /*For Webkits like Chrome and Safari*/
+              -webkit-appearance: none
+              margin: 0
+            &:focus
+              box-shadow: 0 0 25px 0 lighten($color-background, 47%), inset 0 0 8px 0 lighten(transparentize($color-background, 0.3), 47%)
+          input
+            box-shadow: 0 0 0 0 lighten($color-background, 47%), inset 0 0 0 0 lighten(transparentize($color-background, 0.3), 47%)
+            margin-left: 1.5rem
+            background-color: transparent
+            border: none
+            outline: none
+            width: 80px
+            text-align: center
+            border-radius: 25px
+            transition: all 0.8s
