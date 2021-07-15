@@ -11,6 +11,7 @@ class shop extends Component {
     this.componentDidMount = this.componentDidMount.bind(this)
     this.stockProduct = this.stockProduct.bind(this)
     this.articleRef = React.createRef()
+    this.updateOrder = this.updateOrder.bind(this)
   }
 
   componentDidMount () {
@@ -23,6 +24,10 @@ class shop extends Component {
   stockProduct (e) {
     console.log(e.target.parentElement.parentElement.parentElement);
   }
+
+  updateOrder(order) {
+    console.log(order);
+  } 
 
   render () {
     console.log(this.props.currentUser);
@@ -50,7 +55,7 @@ class shop extends Component {
                       // TODO : Je doit a chaque article stocker ICI son nom et sa quantité tout en sachant qu'il peut y avoir plusieurs articles sélectionner
                       // TODO : Ou alors j'envoie  
                       this.state.inventory.map(e => {
-                        return <Article currentUser={this.state.currentUser} name={e.name} price={e.price} key={e.id} />
+                        return <Article storeClientOrder={this.updateOrder()} currentUser={this.state.currentUser} name={e.name} price={e.price} id={e.id} key={e.id} />
                       })
                     }
 
