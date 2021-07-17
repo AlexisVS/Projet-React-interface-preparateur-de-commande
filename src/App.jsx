@@ -37,32 +37,32 @@ class App extends Component {
         },
       ],
       clients: [
-        {
-          id: 1,
-          firstName: "Christophe",
-          lastName: "Brieux",
-          society: "Polaris",
-          email: "christophe.brieux@polaris.com",
-          tel: "0032 485 25 87 98",
-          order: [
-            {
-              id: 1,
-              name: 'Peluche Cactus B0Y',
-              quantity: 1
-            },
-            {
-              id: 2,
-              name: 'Huawei P10 Lite',
-              quantity: 1
-            },
-            {
-              id: 3,
-              name: 'Briquet BIC Rouge',
-              quantity: 15
-            },
-          ],
-          orderHistory: [],
-        },
+        // {
+        //   id: 1,
+        //   firstName: "Christophe",
+        //   lastName: "Brieux",
+        //   society: "Polaris",
+        //   email: "christophe.brieux@polaris.com",
+        //   tel: "0032 485 25 87 98",
+        //   order: [
+        //     {
+        //       id: 1,
+        //       name: 'Peluche Cactus B0Y',
+        //       quantity: 1
+        //     },
+        //     {
+        //       id: 2,
+        //       name: 'Huawei P10 Lite',
+        //       quantity: 1
+        //     },
+        //     {
+        //       id: 3,
+        //       name: 'Briquet BIC Rouge',
+        //       quantity: 15
+        //     },
+        //   ],
+        //   orderHistory: [],
+        // },
         
       ]
     };
@@ -145,7 +145,6 @@ class App extends Component {
     }
   }
   render () {
-    console.log(this.state.clients);
     return (
       <>
         <BrowserRouter>

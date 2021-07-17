@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Article = ({ name, price, id, storeClientOrder }) => {
-  const [quantity, setQuantity] = useState(Number)
+const Article = ({ name, price, id }) => {
+
   const [order, setOrder] = useState({ id: id, name: name, quantity: "" })
+  const [inputvalue, setInputValue] = useState('')
+
+
+  // ? Update le localStorage orderUpdate pour pouvoir manipuler le panier du client
   let updateOrder = (e) => {
-    setOrder({ ...order, quantity: e.target.value })
-    //TODO: Comment envoyer une props au parent ?
-    storeClientOrder({ ...order, quantity: e.target.value })
+    setInputValue(e.target.value)
+    let currentUserId, newOrder
+    newOrder = order
+    newOrder.quantity = e.target.value
+    setOrder(newOrder)
+
+    let orderUpdate = JSON.parse(localStorage.getItem('orderUpdate'))
+    orderUpdate.every(e => e.id != order.id) == true
+      ? orderUpdate.push(order)
+      : orderUpdate.forEach(e => {
+        if (e.id == order.id) {
+          e.quantity = newOrder.quantity
+        }
+      })
+    localStorage.setItem("orderUpdate", JSON.stringify(orderUpdate));
   }
 
   return (
@@ -17,7 +33,7 @@ const Article = ({ name, price, id, storeClientOrder }) => {
           <p><strong className="font-SourceSP-Bold">Prix: </strong>{price}€</p>
           <div className="shop-article-quantity">
             <strong className="font-SourceSP">Quantité: </strong>
-            <input onChange={(e) => updateOrder(e)} type="number" />
+            <input onChange={(e) => updateOrder(e)} value={inputvalue} type="number" />
           </div>
         </div>
       </div>

@@ -23,14 +23,13 @@ class Client extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.renderClients = this.renderClients.bind(this)
+    this.updateUserID = this.updateUserID.bind(this)
   }
 
   // ? Enregistre les données de appStateClients du localStorage dans le state
   saveClientState = () => {
     let appStateClients
     appStateClients = JSON.parse(localStorage.getItem('AppStateClients'))
-    console.log("Je me mets a jour dans clients -> saveClienState()");
-    console.log(appStateClients);
     this.setState({ appStateClients: appStateClients })
   }
 
@@ -38,11 +37,9 @@ class Client extends Component {
     this.saveClientState
   }
 
-  handleSubmit (e) {
-    e.preventDefault();
+  handleSubmit (e) { e.preventDefault() }
 
-  }
-
+  // ? Enregistre le Formulaire
   handleChange (e) {
     let editClientState;
     let value = e.target.value;
@@ -92,12 +89,32 @@ class Client extends Component {
     })
   };
 
+  // ? Envoie la props clientEdited
   actionsModify = () => { this.props.clientEdited(this.state.editClient) }
 
+  // ? envoie la props de la liste des clients
   actionDelete = (e) => {
     let userId = e.target.parentElement.parentElement.children[1].children[4].lastChild.data
     let appStateClients = [...this.state.appStateClients].filter(e => e.id != userId)
     this.props.clientDeleted(appStateClients)
+  }
+
+  // ? Enregistre dans le localStorage l'id de l'utilisateur
+  updateUserID (e) {
+    let id
+    id = e.target.parentElement.parentElement.children[1].children[4].lastChild.data
+    localStorage.setItem("currentUserId", JSON.stringify(id));
+  }
+
+  // ? reste la valeur des input
+  resetInputValueShop () {
+    let articles
+    articles = document.querySelector("#shop").children;
+    [...articles].forEach(e => {
+      if (e.children[0].children[0].children[2].children[1].value = "" !== undefined) {
+        e.children[0].children[0].children[2].children[1].value = ""
+      }
+    })
   }
 
   render () {
@@ -126,7 +143,7 @@ class Client extends Component {
                         <i className="fas fa-edit"></i>
                       </button>
                       {/* <!-- Button trigger modal --> */}
-                      <button type="button" className="clientCard-actions--shop" data-bs-toggle="modal" data-bs-target="#shopModal">
+                      <button onClick={(e) => { this.updateUserID(e); this.resetInputValueShop() }} type="button" className="clientCard-actions--shop" data-bs-toggle="modal" data-bs-target="#shopModal">
                         <i className="fas fa-store"></i>
                       </button>
                       <Shop currentUser={e.id} />

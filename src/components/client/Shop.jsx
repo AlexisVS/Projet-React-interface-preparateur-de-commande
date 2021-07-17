@@ -1,40 +1,66 @@
 import React, { Component } from 'react';
 import Article from "./Article"
 
+
 class shop extends Component {
   constructor(props) {
     super(props)
     this.state = {
       currentUser: this.props.currentUser,
-      inventory: []
+      inventory: [{}],
+      userCommand: []
     }
     this.componentDidMount = this.componentDidMount.bind(this)
+    this.componentDidUpdate = this.componentDidUpdate.bind(this)
     this.stockProduct = this.stockProduct.bind(this)
-    this.articleRef = React.createRef()
-    this.updateOrder = this.updateOrder.bind(this)
+    this.shopRef = React.createRef()
+    this.stockProduct = this.stockProduct.bind(this)
   }
+
 
   componentDidMount () {
-    let inventory, appStateClients
+    // ? Initialise le localStorage orderUpdate
+    localStorage.setItem("orderUpdate", JSON.stringify([]))
+
+    // ? S'abonne au localStorage inventory, appStateClients, articleUpdate
+    let inventory, appStateClients, articleUpdate
     inventory = JSON.parse(localStorage.getItem("inventory"))
     appStateClients = JSON.parse(localStorage.getItem("AppStateClients"))
-    this.setState({ inventory: inventory, appStateClients: appStateClients })
+    articleUpdate = JSON.parse(localStorage.getItem("orderUpdate"))
+    this.setState({ inventory: inventory, appStateClients: appStateClients, articleUpdate: articleUpdate })
   }
 
+  // ? stock et nettoie les champs
   stockProduct (e) {
-    console.log(e.target.parentElement.parentElement.parentElement);
+    // stock
+    let orderUpdate, saveClientOrder
+    orderUpdate = JSON.parse(localStorage.getItem('orderUpdate'))
+    console.log(orderUpdate);
+
+    saveClientOrder = this.state.appStateClients
+    saveClientOrder.forEach(e => {if (e.id = this.state.currentUser) {
+        e.order = [...e.order, orderUpdate]
+    }})
+    
+    localStorage.setItem('AppStateClients', JSON.stringify(saveClientOrder))
+
+    // nettoie
+    ;[...this.shopRef.current.children].forEach(e => {
+      e.children[0].children[0].children[2].children[1].value = ""
+    })
+
   }
 
-  updateOrder(order) {
-    console.log(order);
-  } 
+  // ? met a jour le shop Pour Mettre a jour state.currentUser
+  componentDidUpdate (prevProps, prevState) {
+    prevProps.currentUser != this.props.currentUser
+      ? this.setState({ currentUser: this.props.currentUser })
+      : null
+  }
 
   render () {
-    console.log(this.props.currentUser);
-    console.log(this.state.currentUser);
     return (
       <>
-
 
         {/* <!-- Modal --> */}
         <div className="modal fade" id="shopModal" tabIndex="-1" aria-labelledby="shopModalLabel" aria-hidden="true">
@@ -49,17 +75,15 @@ class shop extends Component {
               <div className="modal-body ">
                 {/* -------------------------------------------------------------------------- */}
                 <div className="shop-wrapper">
-                  <div className="shop">
+                  <div ref={this.shopRef} className="shop" id="shop">
 
                     {
                       // TODO : Je doit a chaque article stocker ICI son nom et sa quantité tout en sachant qu'il peut y avoir plusieurs articles sélectionner
                       // TODO : Ou alors j'envoie  
                       this.state.inventory.map(e => {
-                        return <Article storeClientOrder={this.updateOrder()} currentUser={this.state.currentUser} name={e.name} price={e.price} id={e.id} key={e.id} />
+                        return <Article currentUser={this.state.currentUser} name={e.name} price={e.price} id={e.id} key={e.name + e.id} />
                       })
                     }
-
-
 
                   </div>
                 </div>
@@ -67,7 +91,7 @@ class shop extends Component {
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-blue" data-bs-dismiss="modal">Fermer</button>
-                <button type="button" className="btn btn-green" data-bs-dismiss="modal">Sauvegarder</button>
+                <button type="button" onClick={this.stockProduct} className="btn btn-green" data-bs-dismiss="modal">Sauvegarder</button>
               </div>
             </div>
           </div>
