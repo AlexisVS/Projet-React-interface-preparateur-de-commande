@@ -7,6 +7,9 @@ body, #root
     display: grid
     grid-template-rows: auto 1fr auto
 
+*|*
+    text-rendering: optimizelegibility
+
 h1,h2,h3,h4,h5,h6,thead
     font-family: 'Source Sans Pro Bold', sans-serif
     color: $color-text
@@ -153,18 +156,18 @@ p, input, tbody
 
 /* -------------------------------- Source Sans Pro ------------------------------- */
 
-.font-SourceSP-Bold
-    font-family: 'Source Sans Pro Bold'
 .font-SourceSP-ExtraLight
     font-family: 'Source Sans Pro ExtraLight'
 .font-SourceSP-Light
     font-family: 'Source Sans Pro Light'
-.font-SourceSP-Black
-    font-family: 'Source Sans Pro Black'
 .font-SourceSP
     font-family: 'Source Sans Pro'
 .font-SourceSP-SemiBold
     font-family: 'Source Sans Pro SemiBold'
+.font-SourceSP-Bold
+    font-family: 'Source Sans Pro Bold'
+.font-SourceSP-Black
+    font-family: 'Source Sans Pro Black'
 
 /* --------------------------------- Button --------------------------------- */
 
@@ -250,13 +253,14 @@ form
     label
         width: 95%
         display: flex
-        font-family: "Rubik Bold"
+        font-family: "Rubik Medium"
         font-size: 0.84rem
         align-items: center
         padding: 0.6rem 0
         justify-content: space-between
         p
-            font-family: "Rubik Bold"
+            font-family: 'Source Sans Pro Bold'
+            font-size: 1.16rem
             margin: 0
             width: 190px
             text-align: center

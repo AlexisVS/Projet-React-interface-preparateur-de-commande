@@ -1,12 +1,12 @@
 .modal-shadow
-  box-shadow: 0 0 25px 0 lighten($color-background, 47%), inset 0 0 8px 0 lighten(transparentize($color-background, 0.3), 47%)
+  box-shadow: 0 0 35px 0 lighten(transparentize($color-background, 0.8), 30%), inset 0 0 5px 0px #5e4ceb
 .shop-wrapper
   .shop
     display: grid
     grid-template-columns: repeat(auto-fill, minmax(290px, 1fr))
     grid-gap: 20px
     .shop-article-wrapper
-      box-shadow: 0 0 18px 0 lighten($color-background, 42%), inset 0 0 18px 0 lighten($color-background, 42%)
+      box-shadow: 0 0 13px 0 lighten($color-background, 42%), inset 0 0 18px 0 lighten($color-background, 42%)
       border-radius: 12px
       padding: 20px
       transition: all 0.7s
@@ -15,16 +15,16 @@
       align-items: center
       &:hover
         border-radius: 15px
-        box-shadow: 0 0 25px 0 lighten($color-background, 47%), inset 0 0 8px 0 lighten(transparentize($color-background, 0.3), 47%)
+        box-shadow: 0 0 0 3px lighten(#5e4ceb, 0%), inset 0 0 5px 2px lighten(transparentize(#5e4ceb, 0.2), 0%)
         padding: 0
         margin: 20px
-        transition: all 0.7s
+        transition: all 0.4s
         .shop-article
           .shop-article-quantity
             input
               background-color: transparent !important
-              box-shadow: 0 0 25px 0 lighten($color-background, 47%), inset 0 0 8px 0 lighten(transparentize($color-background, 0.3), 47%)
-              transition: all 0.8s
+              box-shadow: 0 0 10px 0 lighten(#5e4ceb, 0%), inset 0 0 8px 0 lighten(transparentize(#5e4ceb, 0.3), 0%)
+              transition: all 0.4s
               // &:hover
               //   box-shadow: 0 0 25px 0 lighten($color-background, 47%), inset 0 0 8px 0 lighten(transparentize($color-background, 0.3), 47%)
 
@@ -38,7 +38,9 @@
         justify-content: center
         flex-direction: column
         padding-top: 20px
+
         p
+          pointer-events: none
           margin: 0
         .shop-article-quantity
           margin-bottom: 20px
@@ -52,9 +54,9 @@
               -webkit-appearance: none
               margin: 0
             &:focus
-              box-shadow: 0 0 25px 0 lighten($color-background, 47%), inset 0 0 8px 0 lighten(transparentize($color-background, 0.3), 47%)
+              box-shadow: 0 0 0px 2px saturate(lighten(#5e4ceb, 5%), 50%), inset 0 0 0px 1px lighten(transparentize(#5e4ceb, 0), 5%)
           input
-            box-shadow: 0 0 0 0 lighten($color-background, 47%), inset 0 0 0 0 lighten(transparentize($color-background, 0.3), 47%)
+            box-shadow: 0 0 0 0 lighten($color-background, 47%), inset 0 0 0 0 lighten(transparentize($color-background, 0.9), 47%)
             margin-left: 1.5rem
             background-color: transparent
             border: none
@@ -62,4 +64,4 @@
             width: 80px
             text-align: center
             border-radius: 25px
-            transition: all 0.8s
+            transition: all 0.2s

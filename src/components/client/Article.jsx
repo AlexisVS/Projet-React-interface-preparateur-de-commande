@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const Article = ({ name, price, id }) => {
 
-  const [order, setOrder] = useState({ id: id, name: name, quantity: "" })
+  const [order, setOrder] = useState({ id: id, name: name, quantity: ""})
   const [inputvalue, setInputValue] = useState('')
 
 
@@ -37,7 +37,7 @@ const Article = ({ name, price, id }) => {
           </div>
         </div>
       </div>
-    </div >
+    </ div >
   );
 };
 
