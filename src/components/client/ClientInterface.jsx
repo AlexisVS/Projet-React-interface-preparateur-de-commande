@@ -30,9 +30,9 @@ class ClientInterface extends Component {
                 <span className="clientInterface-header-left-title-span"> client</span>
               </h1>
               <p className="clientInterface-header-left-text">
-                Grâce à l'interface client, vous avez la possibilité de geré en ajoutant, modifiant ou supprimant n'importe quel client.
+                Grâce à l'interface client, vous avez la possibilité de gérer en ajoutant, modifiant ou supprimant n'importe quel client.
                 <br /><br />
-                Et acceder au magasin une fois un client sélectionné et traiter ça demande auprès de vous.
+                Et accéder au magasin une fois un client sélectionné et traiter sa demande auprès de vous.
               </p>
               <NewClient newClientData={this.goToApp} />
             </div>
