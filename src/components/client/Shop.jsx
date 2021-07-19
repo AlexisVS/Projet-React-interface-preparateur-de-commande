@@ -33,9 +33,10 @@ class shop extends Component {
   // ? stock et nettoie les champs
   stockProduct (e) {
     // stock
-    let orderUpdate, saveClientOrder
+    let orderUpdate, newOrderId, saveClientOrder
+    newOrderId = JSON.parse(localStorage.getItem('newOrderId'))
     orderUpdate = JSON.parse(localStorage.getItem('orderUpdate'))
-    orderUpdate.unshift("En attente de confirmation") 
+    orderUpdate.unshift({status: "En attente de confirmation", orderId: newOrderId}) 
 
     saveClientOrder = this.state.appStateClients
     saveClientOrder.forEach(e => {if (e.id = this.state.currentUser) {
@@ -43,6 +44,7 @@ class shop extends Component {
     }})
     
     localStorage.setItem('AppStateClients', JSON.stringify(saveClientOrder))
+    localStorage.setItem('newOrderId', JSON.stringify(newOrderId + 1))
 
     // nettoie
     ;[...this.shopRef.current.children].forEach(e => {

@@ -78,6 +78,10 @@ class App extends Component {
   componentDidMount () {
     this.setState({ clients: JSON.parse(localStorage.getItem('AppStateClients')) })
     localStorage.setItem("inventory", JSON.stringify([...this.state.inventory]))
+    // ? Définit l'id de l'order
+    JSON.parse(localStorage.getItem('newOrderId')) == null 
+    ? localStorage.setItem("newOrderId", JSON.stringify(1))
+    : null
 
   }
 

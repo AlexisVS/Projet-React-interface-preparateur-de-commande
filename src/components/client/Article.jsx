@@ -9,7 +9,7 @@ const Article = ({ name, price, id }) => {
   // ? Update le localStorage orderUpdate pour pouvoir manipuler le panier du client
   let updateOrder = (e) => {
     setInputValue(e.target.value)
-    let currentUserId, newOrder
+    let newOrder
     newOrder = order
     newOrder.quantity = e.target.value
     setOrder(newOrder)

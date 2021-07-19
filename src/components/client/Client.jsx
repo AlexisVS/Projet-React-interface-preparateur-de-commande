@@ -24,6 +24,7 @@ class Client extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.renderClients = this.renderClients.bind(this)
     this.updateUserID = this.updateUserID.bind(this)
+    this.updateOrderID = this.updateOrderID.bind(this)
   }
 
   // ? Enregistre les données de appStateClients du localStorage dans le state
@@ -117,6 +118,15 @@ class Client extends Component {
     })
   }
 
+  // Todo : Fonctionne pas quand je clique sur le boutton du shop il est censé incrementer de 1 la valeur de orderId 
+  updateOrderID () {
+    let newOrderId
+    newOrderId = JSON.parse(localStorage.getItem('newOrderId'))
+    if (newOrderId != null || newOrderId != undefined) {
+      localStorage.setItem('newOrderId', JSON.stringify(+newOrderId + 1))
+    }
+  }
+
   render () {
     return (
       <>
@@ -143,7 +153,7 @@ class Client extends Component {
                         <i className="fas fa-edit"></i>
                       </button>
                       {/* <!-- Button trigger modal --> */}
-                      <button onClick={(e) => { this.updateUserID(e); this.resetInputValueShop() }} type="button" className="clientCard-actions--shop" data-bs-toggle="modal" data-bs-target="#shopModal">
+                      <button onClick={(e) => { this.updateUserID(e); this.resetInputValueShop(); this.updateOrderId() }} type="button" className="clientCard-actions--shop" data-bs-toggle="modal" data-bs-target="#shopModal">
                         <i className="fas fa-store"></i>
                       </button>
                       <Shop currentUser={e.id} />
