@@ -35,7 +35,9 @@ class PreparatorInterface extends Component {
     e.target.parentElement.parentElement.parentElement.classList.toggle('pb-0')
   }
 
-  actionPrepare (clientOrder) {
+  actionPrepare (e, clientOrder) {
+    e.target.parentElement.parentElement.children[1].classList.remove('pills-yellow')
+    e.target.parentElement.parentElement.children[1].classList.add('pills-blue')
     let newAppStateClients
     newAppStateClients = [...this.state.AppStateClients]
     newAppStateClients.forEach(client => {
@@ -45,7 +47,6 @@ class PreparatorInterface extends Component {
         }
       })
     })
-    console.log(newAppStateClients);
     localStorage.setItem('AppStateClients', JSON.stringify(newAppStateClients))
     this.forceUpdate()
   }
@@ -91,13 +92,13 @@ class PreparatorInterface extends Component {
                           <span>{clientOrder[0].orderId}</span>
                         </div>
 
-                        <span className="preparatorInterface-order-header-orderStatus pills pills-yellow">
+                        <span className={`preparatorInterface-order-header-orderStatus pills ${clientOrder[0].status == "En préparation" ? 'pills-yellow' : 'pills-blue'} `}>
                           {clientOrder[0].status}
                         </span>
 
                         <div className="preparatorInterface-order-header-actions">
                         {clientOrder[0].status == "En préparation"
-                        ? <button onClick={() => this.actionPrepare(clientOrder)} className="btn btn-green">préparé</button>
+                        ? <button onClick={(e) => this.actionPrepare(e, clientOrder)} className="btn btn-green">préparé</button>
                         : <button onClick={() => this.actionSubmit()} className="btn btn-blue">Envoyer</button>
                         }
                           
@@ -108,11 +109,8 @@ class PreparatorInterface extends Component {
                       </div>
 
                       <div className="preparatorInterface-order-body">
-                        {console.log(clientOrder)}
 
                         {clientOrder.map((article, articleIndex) => {
-
-                          console.log(articleIndex)
 
                           if (articleIndex > 0) {
                             return (
