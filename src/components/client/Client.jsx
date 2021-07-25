@@ -124,6 +124,7 @@ class Client extends Component {
     newOrderId = JSON.parse(localStorage.getItem('newOrderId'))
     if (newOrderId != null || newOrderId != undefined) {
       localStorage.setItem('newOrderId', JSON.stringify(+newOrderId + 1))
+      this.forceUpdate()
     }
   }
 
@@ -145,6 +146,7 @@ class Client extends Component {
                       <p className="clientCard-body-info"><strong className="clientCard-body-labelTitle">id : </strong>{e.id}</p>
                     </div>
                     <div className="clientCard-actions">
+                    {/* Modifier */}
                       <button
                         onClick={this.displayProfile}
                         data-bs-toggle="modal"
@@ -153,10 +155,12 @@ class Client extends Component {
                         <i className="fas fa-edit"></i>
                       </button>
                       {/* <!-- Button trigger modal --> */}
-                      <button onClick={(e) => { this.updateUserID(e); this.resetInputValueShop(); this.updateOrderId() }} type="button" className="clientCard-actions--shop" data-bs-toggle="modal" data-bs-target="#shopModal">
+                      {/* <!-- SHOP --> */}
+                      <button onClick={(e) => { this.updateUserID(e); this.resetInputValueShop(); this.updateOrderID() }} type="button" className="clientCard-actions--shop" data-bs-toggle="modal" data-bs-target="#shopModal">
                         <i className="fas fa-store"></i>
                       </button>
                       <Shop currentUser={e.id} />
+                      {/* <!-- Delete --> */}
                       <button onClick={(e) => this.actionDelete(e)} className="clientCard-actions--delete"><i className="fas fa-times"></i></button>
                     </div>
                   </div>

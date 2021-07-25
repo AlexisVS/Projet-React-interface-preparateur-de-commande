@@ -1,3 +1,59 @@
-.preparatorInterface-order
+.preparatorInterface
+  width: 90%
+  .preparatorInterface-order
+    width: 100%
+    border: 2px solid $color-text
+    margin: 20px 0
+    border-radius: 25px
+    padding: 10px 0
+  .pb-0
+    padding-bottom: 0
   .preparatorInterface-order-header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    font-family: 'Source Sans Pro'
+    .preparatorInterface-order-header-orderId
+      margin-left: 15px
+      font-family: 'Source Sans Pro SemiBold'
+    .preparatorInterface-order-header-actions
+      .preparatorInterface-order-header-actions-show
+        background-color: transparent
+        border: none
+        box-shadow: none
+        outline: none
+        margin-left: 50px
+        svg
+          transition: all 1s
+          pointer-events: none
+          path
+            pointer-events: none
+        .extend
+          transition: all 1s
+          transform: rotateZ(180deg)
   .preparatorInterface-order-body
+    padding-top: 12px
+    display: none
+    .preparatorInterface-order-body-article
+      padding: 10px 0
+      display: flex
+      justify-content: space-evenly
+      align-items: center
+      &:last-child
+        border-bottom-left-radius: 25px
+        border-bottom-right-radius: 25px
+      p
+        margin: 0 15px
+        padding: 10px 0
+      .preparatorInterface-order-body-article-name
+        width: 280px
+        overflow: hidden
+        text-overflow: ellipsis
+      .preparatorInterface-order-body-article-quantity
+        width: 130px
+        font-family: "Source Sans Pro"
+        strong
+          font-family: "Source Sans Pro Bold"
+
+        .preparatorInterface-order-body-article-quantity-checkbox
+          margin-left: 5px

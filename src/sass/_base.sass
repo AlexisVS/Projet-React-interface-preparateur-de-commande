@@ -40,6 +40,10 @@ p, input, tbody
 
 .d-none
     display: none
+.d-flex
+    display: flex
+.d-block
+    display: block
 .whiteSpace-nowrap
     white-space: nowrap
 
@@ -189,6 +193,7 @@ button, .btn
         background-color: lighten($color-blue, 5%)
         border-color: lighten($color-blue, 5%)
     &:focus
+        border-radius: 3px
         outline: 2.9px solid lighten( $color-blue, 28%)
 
     &.btn-background
@@ -290,3 +295,36 @@ form
                 text-align: center
             p
                 width: 100%
+
+/* -------------------------------------------------------------------------- */
+/*                                    Pills                                   */
+/* -------------------------------------------------------------------------- */
+
+.pills
+    background-color: trensparent
+    color: $color-text
+    border: 2px solid $color-text
+    border-radius: 25px
+    width: max-content
+    padding: 5px 8px
+    &.pills-background
+        border-color: $color-background
+        color: $color-background
+    &.pills-text
+        border-color: $color-text
+        color: $color-text
+    &.pills-text-black
+        border-color: $color-text--black
+        color: $color-text--black
+    &.pills-blue
+        border-color: $color-blue
+        color: $color-blue
+    &.pills-green
+        border-color: $color-green
+        color: $color-green
+    &.pills-red
+        border-color: $color-red
+        color: $color-red
+    &.pills-yellow
+        border-color: $color-yellow
+        color: $color-yellow

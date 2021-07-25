@@ -33,25 +33,30 @@ class shop extends Component {
   // ? stock et nettoie les champs
   stockProduct (e) {
     // stock
+
     let orderUpdate, newOrderId, saveClientOrder
     newOrderId = JSON.parse(localStorage.getItem('newOrderId'))
     orderUpdate = JSON.parse(localStorage.getItem('orderUpdate'))
-    orderUpdate.unshift({status: "En attente de confirmation", orderId: newOrderId}) 
+    if (orderUpdate !== null && saveClientOrder !== null) {
+      orderUpdate.unshift({ status: "En préparation", orderId: newOrderId })
 
-    saveClientOrder = this.state.appStateClients
-    saveClientOrder.forEach(e => {if (e.id = this.state.currentUser) {
-        e.order = [...e.order, orderUpdate]
-    }})
-    
-    localStorage.setItem('AppStateClients', JSON.stringify(saveClientOrder))
-    localStorage.setItem('newOrderId', JSON.stringify(newOrderId + 1))
+      saveClientOrder = this.state.appStateClients
+      saveClientOrder.forEach(client => {
+        if (client.id == this.state.currentUser) {
+          client.order = [...client.order, orderUpdate]
+        }
+      })
 
-    // nettoie
-    ;[...this.shopRef.current.children].forEach(e => {
-      e.children[0].children[0].children[2].children[1].value = ""
-    })
-    localStorage.removeItem('orderUpdate')
+      localStorage.setItem('AppStateClients', JSON.stringify(saveClientOrder))
+      localStorage.setItem('newOrderId', JSON.stringify(newOrderId + 1))
 
+        // nettoie
+        ;[...this.shopRef.current.children].forEach(e => {
+          e.children[0].children[0].children[2].children[1].value = ""
+        })
+      localStorage.removeItem('orderUpdate')
+
+    }
   }
 
   // ? met a jour le shop Pour Mettre a jour state.currentUser
