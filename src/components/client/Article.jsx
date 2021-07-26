@@ -14,11 +14,13 @@ const Article = ({ name, price, id }) => {
     newOrder.quantity = e.target.value
     setOrder(newOrder)
 
+    // ? Fait en sorte que localStorage orderUpdate soit initialisable au premier
     let orderUpdate = JSON.parse(localStorage.getItem('orderUpdate'))
     if (orderUpdate == null || orderUpdate == undefined) {
       orderUpdate = []
-      
     }
+
+
     orderUpdate.every(e => e.id != order.id) == true
       ? orderUpdate.push(order)
       : orderUpdate.forEach(e => {

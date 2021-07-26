@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 // Layout
 import Header from "./components/layout/Header"
-import Footer from "./components/layout/Footer"
 // Pages
-import Home from "./components/home/Home"
-import About from "./components/about/About"
 import ClientInterface from "./components/client/ClientInterface"
 import PreparatorInterface from "./components/preparator/PreparatorInterface"
 // 404
@@ -36,35 +33,7 @@ class App extends Component {
           stock: 62
         },
       ],
-      clients: [
-        // {
-        //   id: 1,
-        //   firstName: "Christophe",
-        //   lastName: "Brieux",
-        //   society: "Polaris",
-        //   email: "christophe.brieux@polaris.com",
-        //   tel: "0032 485 25 87 98",
-        //   order: [
-        //     {
-        //       id: 1,
-        //       name: 'Peluche Cactus B0Y',
-        //       quantity: 1
-        //     },
-        //     {
-        //       id: 2,
-        //       name: 'Huawei P10 Lite',
-        //       quantity: 1
-        //     },
-        //     {
-        //       id: 3,
-        //       name: 'Briquet BIC Rouge',
-        //       quantity: 15
-        //     },
-        //   ],
-        //   orderHistory: [],
-        // },
-        
-      ]
+      clients: []
     };
     this.newClientData = this.newClientData.bind(this);
     this.newEditedClientData = this.newEditedClientData.bind(this);
@@ -79,9 +48,9 @@ class App extends Component {
     this.setState({ clients: JSON.parse(localStorage.getItem('AppStateClients')) })
     localStorage.setItem("inventory", JSON.stringify([...this.state.inventory]))
     // ? Définit l'id de l'order
-    JSON.parse(localStorage.getItem('newOrderId')) == null 
-    ? localStorage.setItem("newOrderId", JSON.stringify(1))
-    : null
+    JSON.parse(localStorage.getItem('newOrderId')) == null
+      ? localStorage.setItem("newOrderId", JSON.stringify(1))
+      : null
 
   }
 
@@ -154,13 +123,10 @@ class App extends Component {
         <BrowserRouter>
           <Header />
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/client" component={() => <ClientInterface deletedClient={this.newDeletedClientData} editedClient={this.newEditedClientData} newClient={this.newClientData} />} />
             <Route path="/preparator" component={PreparatorInterface} />
+            <Route exact path="/" component={() => <ClientInterface deletedClient={this.newDeletedClientData} editedClient={this.newEditedClientData} newClient={this.newClientData} />} />
             <Route component={NotFound} />
           </Switch>
-          <Footer />
         </BrowserRouter>
       </>
     );

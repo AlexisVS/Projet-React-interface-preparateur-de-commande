@@ -6,7 +6,7 @@ class shop extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentUser: this.props.currentUser,
+      currentUser: JSON.parse(localStorage.getItem('currentUserId')),
       inventory: [{}],
       userCommand: []
     }
@@ -22,12 +22,13 @@ class shop extends Component {
     // ? Initialise le localStorage orderUpdate
     localStorage.setItem("orderUpdate", JSON.stringify([]))
 
-    // ? S'abonne au localStorage inventory, appStateClients, articleUpdate
-    let inventory, appStateClients, articleUpdate
+    // ? S'abonne au localStorage inventory, appStateClients, articleUpdate, currentUserId
+    let inventory, appStateClients, articleUpdate, currentUserId
+    currentUserId = JSON.parse(localStorage.getItem('currentUserId'))
     inventory = JSON.parse(localStorage.getItem("inventory"))
     appStateClients = JSON.parse(localStorage.getItem("AppStateClients"))
     articleUpdate = JSON.parse(localStorage.getItem("orderUpdate"))
-    this.setState({ inventory: inventory, appStateClients: appStateClients, articleUpdate: articleUpdate })
+    this.setState({ inventory: inventory, appStateClients: appStateClients, articleUpdate: articleUpdate, currentUser : currentUserId })
   }
 
   // ? stock et nettoie les champs
@@ -53,16 +54,21 @@ class shop extends Component {
         // nettoie
         ;[...this.shopRef.current.children].forEach(e => {
           e.children[0].children[0].children[2].children[1].value = ""
+          console.log(e.children[0].children[0].children[2].children[1]);
         })
+
+        // document.querySelectorAll('.jsx_InputQuantityArticleShop').forEach(e => e.value = "")
+
       localStorage.removeItem('orderUpdate')
+      this.forceUpdate()
 
     }
   }
 
   // ? met a jour le shop Pour Mettre a jour state.currentUser
   componentDidUpdate (prevProps, prevState) {
-    prevProps.currentUser != this.props.currentUser
-      ? this.setState({ currentUser: this.props.currentUser })
+    prevState.currentUser != JSON.parse(localStorage.getItem('currentUserId'))
+      ? this.setState({ currentUser: JSON.parse(localStorage.getItem('currentUserId')) })
       : null
   }
 

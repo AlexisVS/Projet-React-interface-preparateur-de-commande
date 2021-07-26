@@ -29,7 +29,7 @@ class PreparatorInterface extends Component {
   }
 
   extendsOrder (e) {
-    console.log( e.target.parentElement.parentElement.parentElement);
+    console.log(e.target.parentElement.parentElement.parentElement);
     e.target.parentElement.parentElement.parentElement.children[1].classList.toggle('d-block')
     e.target.children[0].classList.toggle('extend')
     e.target.parentElement.parentElement.parentElement.classList.toggle('pb-0')
@@ -48,11 +48,25 @@ class PreparatorInterface extends Component {
       })
     })
     localStorage.setItem('AppStateClients', JSON.stringify(newAppStateClients))
+    this.setState({ AppStateClients: newAppStateClients })
     this.forceUpdate()
   }
 
-  actionSubmit() {
-      // Il ne reste plus que toi
+  actionSubmit (e, clientOrder) {
+    let newAppStateClients, finishedOrder
+    newAppStateClients = [...this.state.AppStateClients]
+    newAppStateClients.forEach((client, clientIndex) => {
+      client.order.forEach((orderClient, orderClientIndex) => {
+        if (clientOrder[0].orderId == orderClient[0].orderId) {
+          finishedOrder = orderClient
+          delete finishedOrder.status
+          client.order.splice(orderClientIndex, 1)
+          client.orderHistory.push(finishedOrder);
+        }
+      })
+    })
+    this.setState({ AppStateClients: newAppStateClients })
+    localStorage.setItem('AppStateClients', JSON.stringify(newAppStateClients))
   }
 
 
@@ -78,8 +92,8 @@ class PreparatorInterface extends Component {
             {/* // ! -------------------------------------------------------------------------- */}
             <div className="preparatorInterface">
               {
-                this.state.AppStateClients.length !== 0 && [...this.state.AppStateClients].map(client => (
-                  
+                this.state.AppStateClients !== null && this.state.AppStateClients.length !== 0 && [...this.state.AppStateClients].map(client => (
+
                   client.order.map((clientOrder, clientOrderIndex) => (
 
                     // ? || orderId | status | actions( plus de détail, préparé )
@@ -97,11 +111,11 @@ class PreparatorInterface extends Component {
                         </span>
 
                         <div className="preparatorInterface-order-header-actions">
-                        {clientOrder[0].status == "En préparation"
-                        ? <button onClick={(e) => this.actionPrepare(e, clientOrder)} className="btn btn-green">préparé</button>
-                        : <button onClick={() => this.actionSubmit()} className="btn btn-blue">Envoyer</button>
-                        }
-                          
+                          {clientOrder[0].status == "En préparation"
+                            ? <button onClick={(e) => this.actionPrepare(e, clientOrder)} className="btn btn-green">préparé</button>
+                            : <button onClick={(e) => this.actionSubmit(e, clientOrder)} className="btn btn-blue">Envoyer</button>
+                          }
+
                           <button onClick={this.extendsOrder} className="preparatorInterface-order-header-actions-show">
                             <i className="fas fa-chevron-down"></i>
                           </button>

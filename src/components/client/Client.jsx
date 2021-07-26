@@ -119,13 +119,14 @@ class Client extends Component {
   }
 
   // Todo : Fonctionne pas quand je clique sur le boutton du shop il est censé incrementer de 1 la valeur de orderId 
+  // TODO : Askip ça sert a rien
   updateOrderID () {
-    let newOrderId
-    newOrderId = JSON.parse(localStorage.getItem('newOrderId'))
-    if (newOrderId != null || newOrderId != undefined) {
-      localStorage.setItem('newOrderId', JSON.stringify(+newOrderId + 1))
-      this.forceUpdate()
-    }
+    // let newOrderId
+    // newOrderId = JSON.parse(localStorage.getItem('newOrderId'))
+    // if (newOrderId != null || newOrderId != undefined) {
+    //   localStorage.setItem('newOrderId', JSON.stringify(+newOrderId + 1))
+    //   // this.forceUpdate()
+    // }
   }
 
   render () {
@@ -156,10 +157,10 @@ class Client extends Component {
                       </button>
                       {/* <!-- Button trigger modal --> */}
                       {/* <!-- SHOP --> */}
-                      <button onClick={(e) => { this.updateUserID(e); this.resetInputValueShop(); this.updateOrderID() }} type="button" className="clientCard-actions--shop" data-bs-toggle="modal" data-bs-target="#shopModal">
+                      <button onClick={(e) => { this.updateUserID(e); this.resetInputValueShop(); this.updateOrderID(); this.forceUpdate() }} type="button" className="clientCard-actions--shop" data-bs-toggle="modal" data-bs-target="#shopModal">
                         <i className="fas fa-store"></i>
                       </button>
-                      <Shop currentUser={e.id} />
+                      <Shop />
                       {/* <!-- Delete --> */}
                       <button onClick={(e) => this.actionDelete(e)} className="clientCard-actions--delete"><i className="fas fa-times"></i></button>
                     </div>
